@@ -1,0 +1,60 @@
+.page-layout{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.page-name{
+    font-size: 36px;
+}
+
+/*------banner-------*/
+#banner{
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+}
+
+#banner img{
+    height: 128px;
+    width: auto;
+}
+
+#banner h1{
+    font-size: 75px;
+    color:lightseagreen;
+    margin-bottom: 0px;
+}
+
+/*------model-choice-------*/
+.model-choice{
+    display: flex;
+    justify-content:space-between;
+    margin-top: 36px;
+}
+
+.model-choice img{
+    height: 64px;
+    width: auto;
+    display: block; /*for center align*/
+    margin: auto; /*for center align*/
+}
+
+.model-choice .model-name{
+    font-size: 24px;
+    text-align: center;
+}
+
+
+.footer {
+    height: 10%;
+    width: 100%;
+    z-index: 1000;
+    background-color: lightgray;
+    color: #ffffff;
+    padding-top: 30px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+}

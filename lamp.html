@@ -1,70 +1,54 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>LAMP</title>
-    </head>
-    <body>
-        <div id="landing">
-            <h1 style="vertical-align: middle; text-align: center; font-size: 32pt;">LAMP</h1>
-            <button style="margin-left: auto; margin-right: auto; display: block;">VGG</button>
+
+<head>
+    <meta charset="utf-8" />
+    <title>LAMP</title>
+    <!--including css-->
+    <link rel="stylesheet" href="lamp.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body>
+    <div class="page-layout">
+        <div id="banner">
+            <img src="./image_archive/desk-lamp.svg" alt="LAMP image" />
+            <h1 id="page-name">LAMP</h1>
         </div>
-        <div id="overview" >
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">Model Overview</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 1</p1>
-            <!-- overview 그림 -->
+        <div class="model-choice">
+            <div id="vgg-area">
+                <p class="model-name">VGG</p>
+                <img src="./image_archive/desk-lamp.svg" alt="VGG image" />
+            </div>
+            <div id="model2-area">
+                <p class="model-name">model2</p>
+                <img src="./image_archive/desk-lamp.svg" alt="model2 image" />
+            </div>
+            <div id="model3-area">
+                <p class="model-name">model3</p>
+                <img src="./image_archive/desk-lamp.svg" alt="model3 image" />
+            </div>
+            <div id="model4-area">
+                <p class="model-name">model4</p>
+                <img src="./image_archive/desk-lamp.svg" alt="model4 image" />
+            </div>
         </div>
-        <div id="input">
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">Input</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p2 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 2</p2>
-            <!-- input 그림 -->
+    </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            Icons made by
+            <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">
+                Pixel perfect
+            </a>
+            from
+            <a href="https://www.flaticon.com/" title="Flaticon">
+                www.flaticon.com
+            </a>
         </div>
-        <div id="model">
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">VGG</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p3 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 3</p3>
-            <!-- model 그림 -->
-        </div>
-        <div id="conv">
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">Convolution</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p4 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 4</p4>
-            <!-- conv interactive elements -->
-        </div>
-        <div id="pooling">
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">Pooling</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p5 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 5</p5>
-            <!-- pooling interactive elements -->
-        </div>
-        <div id="softmax">
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">Softmax</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p6 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 6</p6>
-            <!-- softmax 그림 -->
-        </div>
-        <div id="output">
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">Output</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p7 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 7</p7>
-            <!-- output 그림 -->
-        </div>
-        <div id="code">
-            <h1 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 24pt;">Code Materials</h1>
-            <button id="back" style="margin-left: 1%; margin-right: 1%; float: right">Back</button>
-            <button id="changemodel" style="margin-left: 1%; margin-right: 1%; float: right">Change model</button>
-            <p8 style="margin-left: auto; margin-right: auto; display: block; width: 50%; font-size: 12pt;">설명문 8</p8>
-            <!-- model 그림 -->
-        </div>
-        <script src="https://d3js.org/d3.v6.min.js"></script>
-    </body>
+    </div>
+    <script src="lamp.js"></script>
+</body>
+
 </html>
