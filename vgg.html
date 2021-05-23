@@ -62,15 +62,34 @@
             </p>
             <div class="subsection">
                 <a class="section-subtitle" id="model-conv">Conv</a>
-                <div class="interactive-panel conv">
-                    <p class="choose-input">Choose a input image</p>
-                    <div class="input-candidate">
-                        <img src="./image_archive/real_input/building_gray.jpg" alt="building" />
-                        <img src="./image_archive/real_input/windflower_gray.jpg" alt="gray" />
-                        <img src="./image_archive/real_input/windflower_gray.jpg" alt="rat image" />
+                <div id="conv-interactive-panel">
+                    <div class="input-group">
+                        <p class="choose-text">Choose a input image</p>
+                        <div id="conv-input-candidate">
+                            <img src="./image_archive/real_input/building_gray.jpg" alt="building" />
+                            <img src="./image_archive/real_input/windflower_gray.jpg" alt="gray" />
+                            <img src="./image_archive/real_input/windflower_gray.jpg" alt="rat image" />
+                        </div>
+                        <canvas id="conv-input" width="300" height="300">Your browser does not support the HTML5 canvas
+                            tag.</canvas>
                     </div>
-                    <canvas id="conv-input" width="300" height="300">Your browser does not support the HTML5 canvas
-                        tag.</canvas>
+                    <div class="filter-group">
+                        <p class="choose-text">Choose a filter</p>
+                        <div id="conv-filter-candidate">
+                            <img src="./image_archive/filter/edge_filter.png" alt="edge" />
+                            <img src="./image_archive/filter/edge_filter.png" alt="edge" />
+                            <img src="./image_archive/filter/edge_filter.png" alt="edge" />
+                        </div>
+                        <canvas id="conv-filter" width="100" height="100">Your browser does not support the HTML5 canvas
+                            tag.</canvas>
+                    </div>
+                    <img id="conv-arrow" src='./image_archive/right-arrow.svg'>
+                    <div class=" output-group">
+                        <p class="choose-text">Output</p>
+                        <div id="conv-output">
+                            <img id="conv-output-img" src></img>
+                        </div>
+                    </div>
                 </div>
                 <p class="description">
                     D3 allows you to bind arbitrary data to a Document Object Model

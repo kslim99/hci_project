@@ -22,35 +22,61 @@
     font-size: 16px;
 }
 
-.interactive-panel{
+#conv-interactive-panel{
     margin: 5px 15px;
+    padding-left: 5px;
+    padding-bottom: 15px;
     background-color: lightgray;
-}
-
-.input-candidate{
-    padding-left: 20px;
-    padding-top: 0px;
-    width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
 }
 
-.input-candidate img{
-    width: 30%;
-    height: auto;
+#conv-interactive-panel .input-group{
+    width: 310px;
+    padding: 10px; /*top-right-bottom-left*/
 }
 
-.choose-input{
-    padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    margin: 0;
-    width: 30%;
+#conv-interactive-panel .choose-text{
     font-size: medium;
     font-weight: bold;
     text-align: center;
 }
 
+#conv-input-candidate{
+    padding: 0px 20px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#conv-input-candidate img{
+    width: 30%;
+    height: auto;
+}
+
+/*filter*/
+#conv-interactive-panel .filter-group{
+    width: 250px;
+    padding: 10px; /*top-right-bottom-left*/
+}
+
+#conv-filter-candidate{
+    padding: 0px 20px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#conv-filter-candidate img{
+    width: 30%;
+    height: auto;
+}
+
+/*output*/
+#conv-arrow{
+    width: 64px;
+    height: auto;
+}
+
+/*page buttons*/
 .page-buttons{
     z-index: 100;
     position: fixed;
