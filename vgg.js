@@ -10,7 +10,7 @@ d3.select('#conv-input-candidate')
         ctx.clearRect(0, 0, targetCanvas.width, targetCanvas.height);
 
         let img = this;
-        ctx.drawImage(img, 10, 10, targetCanvas.clientWidth, targetCanvas.clientHeight);
+        ctx.drawImage(img, 0, 0, targetCanvas.clientWidth, targetCanvas.clientHeight);
     });
 
 d3.select('#conv-filter-candidate')
@@ -31,4 +31,21 @@ d3.select('#conv-arrow')
         let imgSpot = document.getElementById("conv-output-img");
         imgSpot.src == './image_archive/edge_output/building_out.jpg';
         */
+    });
+
+d3.select('#conv-input')
+    .on('click', function (event) {
+        console.log(event);
+        let clickedX = event.offsetX;
+        let clickedY = event.offsetY;
+
+        let context = this.getContext("2d");
+        let myImageData = context.getImageData(clickedX, clickedY, 3, 3).data;
+        let pixels = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                pixels[i][j] = myImageData[4 * (i * 3 + j)]
+            }
+        }
+        console.log(pixels);
     });

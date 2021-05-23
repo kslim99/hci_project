@@ -70,6 +70,10 @@
     height: auto;
 }
 
+#conv-input{
+    margin: 10px;
+}
+
 /*output*/
 #conv-arrow{
     width: 64px;
