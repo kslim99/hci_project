@@ -53,6 +53,13 @@
     height: auto;
 }
 
+/*hovered position input*/
+#grid .square{
+    opacity: 0.5; 
+    fill: rgb(100, 167, 206); 
+    stroke: black;
+}
+
 /*filter*/
 #conv-interactive-panel .filter-group{
     width: 250px;
@@ -73,6 +80,7 @@
 #conv-input{
     margin: 10px;
 }
+
 
 /*output*/
 #conv-arrow{

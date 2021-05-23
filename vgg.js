@@ -44,8 +44,19 @@ d3.select('#conv-input')
         let pixels = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
-                pixels[i][j] = myImageData[4 * (i * 3 + j)]
+                pixels[i][j] = myImageData[4 * (i * 3 + j)];
             }
         }
-        console.log(pixels);
+
+
+        d3.selectAll('#grid')
+            .selectAll('.square')
+            .each(function (d, i) {
+                let row = Math.floor(i / 3);
+                let col = i % 3;
+                let grayscale = pixels[row][col];
+                this.style.fill = `rgb(${grayscale},${grayscale},${grayscale})`;
+            });
+
+
     });

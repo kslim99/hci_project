@@ -80,7 +80,25 @@
                             <img src="./image_archive/filter/edge_filter.png" alt="edge" />
                             <img src="./image_archive/filter/edge_filter.png" alt="edge" />
                         </div>
-                        <canvas id="conv-filter" width="100" height="100">Your browser does not support the HTML5 canvas
+                        <svg id="grid" width="122px" height="122px">
+                            <g class="row">
+                                <rect class="square" x="7" y="1" width="20" height="20"></rect>
+                                <rect class="square" x="48" y="1" width="20" height="20"></rect>
+                                <rect class="square" x="88" y="1" width="20" height="20"></rect>
+                            </g>
+                            <g class="row">
+                                <rect class="square" x="7" y="42" width="20" height="20"></rect>
+                                <rect class="square" x="48" y="42" width="20" height="20"></rect>
+                                <rect class="square" x="88" y="42" width="20" height="20"></rect>
+                            </g>
+                            <g class="row">
+                                <rect class="square" x="7" y="82" width="20" height="20"></rect>
+                                <rect class="square" x="48" y="82" width="20" height="20"></rect>
+                                <rect class="square" x="88" y="82" width="20" height="20"></rect>
+                            </g>
+                        </svg>
+                        <canvas id="conv-filter" width="100" height="100">Your browser does not support the HTML5
+                            canvas
                             tag.</canvas>
                     </div>
                     <img id="conv-arrow" src='./image_archive/right-arrow.svg'>
