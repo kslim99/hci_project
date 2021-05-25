@@ -25,14 +25,14 @@
 #conv-interactive-panel{
     margin: 5px 15px;
     padding-left: 5px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     background-color: lightgray;
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
 }
 
 #conv-interactive-panel .input-group{
-    width: 310px;
+    width: 260px;
     padding: 10px; /*top-right-bottom-left*/
 }
 
@@ -79,8 +79,31 @@
 
 #conv-input{
     margin: 10px;
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
 }
 
+.chosen-text{
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+}
+
+#input-filter-conv{
+    margin-top: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#conv-filter{
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
+}
+
+#output-group{
+    width:250px;
+}
 
 /*output*/
 #conv-arrow{

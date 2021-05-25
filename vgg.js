@@ -10,7 +10,7 @@ d3.select('#conv-input-candidate')
         ctx.clearRect(0, 0, targetCanvas.width, targetCanvas.height);
 
         let img = this;
-        ctx.drawImage(img, 0, 0, targetCanvas.clientWidth, targetCanvas.clientHeight);
+        ctx.drawImage(img, 10, 10, targetCanvas.clientWidth - 20, targetCanvas.clientHeight - 20);
     });
 
 d3.select('#conv-filter-candidate')
@@ -33,30 +33,181 @@ d3.select('#conv-arrow')
         */
     });
 
+let pixels_row1 = [0, 0, 0];
+let pixels_row2 = [0, 0, 0];
+let pixels_row3 = [0, 0, 0];
+
+// initialize
+d3.select('#row1')
+    .selectAll('rect')
+    .data(pixels_row1, d => d)
+    .join('rect')
+    .attr('width', 30)
+    .attr('height', 30)
+    .attr('x', (d, i) => 40 * i + 7)
+    .attr('y', 1)
+    .transition()
+    .delay(100)
+    .duration(1000)
+    .style('fill', d => `rgb(${d},${d},${d})`);
+
+d3.select('#row1')
+    .selectAll('text')
+    .data(pixels_row1, d => d)
+    .join('text')
+    .attr('x', (d, i) => 40 * i + 19)
+    .attr('y', 22)
+    .transition()
+    .delay(100)
+    .duration(1000)
+    .text(d => d / 256)
+    .style('fill', d => (d > 128) ? 'black' : 'white')
+    .style('font-size', 'small')
+    .style('text-align', 'center');
+
+d3.select('#row2')
+    .selectAll('rect')
+    .data(pixels_row2, d => d)
+    .join('rect')
+    .attr('width', 30)
+    .attr('height', 30)
+    .attr('x', (d, i) => 40 * i + 7)
+    .attr('y', 42)
+    .transition()
+    .delay(100)
+    .duration(1000)
+    .style('fill', d => `rgb(${d},${d},${d})`);
+
+d3.select('#row2')
+    .selectAll('text')
+    .data(pixels_row2, d => d)
+    .join('text')
+    .attr('x', (d, i) => 40 * i + 19)
+    .attr('y', 62)
+    .transition()
+    .delay(100)
+    .duration(1000)
+    .text(d => d / 256)
+    .style('fill', d => (d > 128) ? 'black' : 'white')
+    .style('font-size', 'small')
+    .style('text-align', 'center');
+
+d3.select('#row3')
+    .selectAll('rect')
+    .data(pixels_row3, d => d)
+    .join('rect')
+    .attr('width', 30)
+    .attr('height', 30)
+    .attr('x', (d, i) => 40 * i + 7)
+    .attr('y', 82)
+    .transition()
+    .delay(100)
+    .duration(1000)
+    .style('fill', d => `rgb(${d},${d},${d})`);
+
+d3.select('#row3')
+    .selectAll('text')
+    .data(pixels_row3, d => d)
+    .join('text')
+    .attr('x', (d, i) => 40 * i + 19)
+    .attr('y', 102)
+    .transition()
+    .delay(100)
+    .duration(1000)
+    .text(d => d / 256)
+    .style('fill', d => (d > 128) ? 'black' : 'white')
+    .style('font-size', 'small')
+    .style('text-align', 'center');
+
 d3.select('#conv-input')
     .on('click', function (event) {
-        console.log(event);
         let clickedX = event.offsetX;
         let clickedY = event.offsetY;
 
         let context = this.getContext("2d");
-        let myImageData = context.getImageData(clickedX, clickedY, 3, 3).data;
-        let pixels = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3; j++) {
-                pixels[i][j] = myImageData[4 * (i * 3 + j)];
-            }
-        }
+        let myImageData = context.getImageData(clickedX, clickedY, 3, 3).data.filter((d, i) => (i % 4 == 0));
+        pixels_row1 = myImageData.slice(0, 3);
+        pixels_row2 = myImageData.slice(3, 6);
+        pixels_row3 = myImageData.slice(6, 9);
 
+        d3.select('#row1')
+            .selectAll('rect')
+            .data(pixels_row1, d => d)
+            .join('rect')
+            .attr('width', 30)
+            .attr('height', 30)
+            .attr('x', (d, i) => 40 * i + 7)
+            .attr('y', 1)
+            .transition()
+            .delay(100)
+            .duration(1000)
+            .style('fill', d => `rgb(${d},${d},${d})`);
 
-        d3.selectAll('#grid')
-            .selectAll('.square')
-            .each(function (d, i) {
-                let row = Math.floor(i / 3);
-                let col = i % 3;
-                let grayscale = pixels[row][col];
-                this.style.fill = `rgb(${grayscale},${grayscale},${grayscale})`;
-            });
+        d3.select('#row1')
+            .selectAll('text')
+            .data(pixels_row1, d => d)
+            .join('text')
+            .attr('x', (d, i) => 40 * i + 11)
+            .attr('y', 22)
+            .transition()
+            .delay(100)
+            .duration(1000)
+            .text(d => (d / 256).toFixed(2))
+            .style('fill', d => (d > 128) ? 'black' : 'white')
+            .style('font-size', 'small')
+            .style('text-align', 'center');
 
+        d3.select('#row2')
+            .selectAll('rect')
+            .data(pixels_row2, d => d)
+            .join('rect')
+            .attr('width', 30)
+            .attr('height', 30)
+            .attr('x', (d, i) => 40 * i + 7)
+            .attr('y', 42)
+            .transition()
+            .delay(100)
+            .duration(1000)
+            .style('fill', d => `rgb(${d},${d},${d})`);
 
+        d3.select('#row2')
+            .selectAll('text')
+            .data(pixels_row2, d => d)
+            .join('text')
+            .attr('x', (d, i) => 40 * i + 11)
+            .attr('y', 62)
+            .transition()
+            .delay(100)
+            .duration(1000)
+            .text(d => (d / 256).toFixed(2))
+            .style('fill', d => (d > 128) ? 'black' : 'white')
+            .style('font-size', 'small')
+            .style('text-align', 'center');
+
+        d3.select('#row3')
+            .selectAll('rect')
+            .data(pixels_row3, d => d)
+            .join('rect')
+            .attr('width', 30)
+            .attr('height', 30)
+            .attr('x', (d, i) => 40 * i + 7)
+            .attr('y', 82)
+            .transition()
+            .delay(100)
+            .duration(1000)
+            .style('fill', d => `rgb(${d},${d},${d})`);
+
+        d3.select('#row3')
+            .selectAll('text')
+            .data(pixels_row3, d => d)
+            .join('text')
+            .attr('x', (d, i) => 40 * i + 11)
+            .attr('y', 102)
+            .transition()
+            .delay(100)
+            .duration(1000)
+            .text(d => (d / 256).toFixed(2))
+            .style('fill', d => (d > 128) ? 'black' : 'white')
+            .style('font-size', 'small')
+            .style('text-align', 'center');
     });
