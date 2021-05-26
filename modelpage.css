@@ -7,6 +7,8 @@
 .model-name {
     font-size: 48px;
     text-align: center;
+    font-weight: bold;
+    color: lightseagreen;
 }
 
 .section-title {
@@ -28,7 +30,7 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 750px;
+    top: 900px;
     left: 31%;
 }
 
@@ -37,7 +39,7 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 750px;
+    top: 900px;
     left: 34%;
 }
 
@@ -46,7 +48,7 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 710px;
+    top: 860px;
     left: 62%;
 }
 /********* interactive panel **************/
@@ -195,7 +197,7 @@
 
 .floating-menu {
     font-family: sans-serif;
-    background: yellowgreen;
+    background: lightseagreen;
     padding: 5px;
     width: 130px;
     z-index: 100;
@@ -212,4 +214,27 @@
 }
 p {
     font-size: xx-large;
+}
+
+/*********** paper *******************/
+#paper-abstract {
+    position: fixed;
+    padding: 0px 10px;
+    right: 5px;
+    top: 15%;
+    width: 24%;
+    background-color: beige;
+}
+
+.paper-title {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.fold {
+    opacity: 0;
+}
+
+.paper-description {
+    font-size: medium;
 }

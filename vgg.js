@@ -230,3 +230,11 @@ d3.select("#conv-input")
             .style("font-size", "small")
             .style("text-align", "center");
     });
+
+//------------------- Read paper ------------------------
+d3.select("#model-overview-paper").on("click", function () {
+    let targetPaper = d3.select("#paper-abstract");
+    targetPaper.attr("fold") == "true"
+        ? targetPaper.classed("fold", false).attr("fold", false)
+        : targetPaper.classed("fold", true).attr("fold", true);
+});
