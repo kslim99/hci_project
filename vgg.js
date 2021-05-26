@@ -232,9 +232,70 @@ d3.select("#conv-input")
     });
 
 //------------------- Read paper ------------------------
+/*
 d3.select("#model-overview-paper").on("click", function () {
     let targetPaper = d3.select("#paper-abstract");
     targetPaper.attr("fold") == "true"
         ? targetPaper.classed("fold", false).attr("fold", false)
         : targetPaper.classed("fold", true).attr("fold", true);
+});
+*/
+let sectionPaperPair = {
+    "model-overview-paper": "paper-abstract",
+    "input-paper": "paper-arc-input",
+    "model-paper": "paper-arc-model",
+};
+
+d3.selectAll(".section-title-container")
+    .selectAll("img")
+    .on("click", function () {
+        let targetPaper = d3.select("#" + sectionPaperPair[this.id]);
+        targetPaper.attr("fold") == "true"
+            ? targetPaper.classed("fold", false).attr("fold", false)
+            : targetPaper.classed("fold", true).attr("fold", true);
+    });
+
+d3.text("./papers/VGG/abstract.txt").then(function (text) {
+    d3.select("#paper-abstract").select(".paper-description").text(text);
+});
+
+d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
+    d3.select("#paper-arc-input").select(".paper-description").text(text);
+});
+
+d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
+    d3.select("#paper-arc-model").select(".paper-description").text(text);
+});
+
+// descriptions
+d3.text("./description/model_overview.txt").then(function (text) {
+    d3.select("#section-model-overview").select(".description").text(text);
+});
+
+d3.text("./description/input.txt").then(function (text) {
+    d3.select("#section-input").select(".description").text(text);
+});
+
+d3.text("./description/vgg.txt").then(function (text) {
+    d3.select("#section-model").select(".description").text(text);
+});
+
+d3.text("./description/conv.txt").then(function (text) {
+    d3.select("#section-model").select(".description").text(text);
+});
+
+d3.text("./description/conv.txt").then(function (text) {
+    d3.select(".subsection.conv").select(".description").text(text);
+});
+
+d3.text("./description/pooling.txt").then(function (text) {
+    d3.select(".subsection.pooling").select(".description").text(text);
+});
+
+d3.text("./description/softmax.txt").then(function (text) {
+    d3.select(".subsection.softmax").select(".description").text(text);
+});
+
+d3.text("./description/output.txt").then(function (text) {
+    d3.select("#section-output").select(".description").text(text);
 });

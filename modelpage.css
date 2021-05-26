@@ -217,13 +217,15 @@ p {
 }
 
 /*********** paper *******************/
-#paper-abstract {
+.paper-group {
     position: fixed;
     padding: 0px 10px;
     right: 5px;
     top: 15%;
     width: 24%;
+    height: 75%;
     background-color: beige;
+    overflow: auto;
 }
 
 .paper-title {
@@ -232,7 +234,7 @@ p {
 }
 
 .fold {
-    opacity: 0;
+    display: none;
 }
 
 .paper-description {
