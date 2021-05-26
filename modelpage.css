@@ -1,28 +1,28 @@
-.page-layout{
+.page-layout {
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
 }
 
-.model-name{
+.model-name {
     font-size: 48px;
     text-align: center;
 }
 
-.section-title{
+.section-title {
     font-size: 36px;
     font-weight: 800;
 }
-.section-subtitle{
+.section-subtitle {
     font-size: 24px;
     font-weight: 400;
 }
 
-.description{
+.description {
     font-size: 16px;
 }
 
-#conv-interactive-panel{
+#conv-interactive-panel {
     margin: 5px 15px;
     padding-left: 5px;
     padding-bottom: 10px;
@@ -31,93 +31,106 @@
     justify-content: space-between;
 }
 
-#conv-interactive-panel .input-group{
+#conv-interactive-panel .input-group {
     width: 260px;
     padding: 10px; /*top-right-bottom-left*/
 }
 
-#conv-interactive-panel .choose-text{
+#conv-interactive-panel .choose-text {
     font-size: medium;
     font-weight: bold;
     text-align: center;
 }
 
-#conv-input-candidate{
+#conv-input-candidate {
     padding: 0px 20px; /*top-left*/
     display: flex;
     justify-content: space-between;
 }
 
-#conv-input-candidate img{
+#conv-input-candidate img {
     width: 30%;
     height: auto;
 }
 
 /*hovered position input*/
-#grid .square{
-    opacity: 0.5; 
-    fill: rgb(100, 167, 206); 
+#grid .square {
+    opacity: 0.5;
+    fill: rgb(100, 167, 206);
     stroke: black;
 }
 
-#input-tooltip{
+#input-tooltip {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-#input-tooltip img{
+#output-tooltip {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#input-tooltip img {
     width: 15px;
     height: auto;
 }
 
 /*filter*/
-#conv-interactive-panel .filter-group{
+#conv-interactive-panel .filter-group {
     width: 250px;
     padding: 10px; /*top-right-bottom-left*/
 }
 
-#conv-filter-candidate{
+#conv-filter-candidate {
     padding: 0px 20px; /*top-left*/
     display: flex;
     justify-content: space-between;
 }
 
-#conv-filter-candidate img{
+#conv-filter-candidate img {
     width: 30%;
     height: auto;
 }
 
-#conv-input{
+#conv-input {
     margin: 10px;
     border: 3px solid lightseagreen;
     border-radius: 10px;
 }
 
-.chosen-text{
+.chosen-text {
     font-size: medium;
     font-weight: bold;
     text-align: center;
     margin: 0px;
 }
 
-#input-filter-conv{
+#input-filter-conv {
     margin-top: 40%;
     display: flex;
     justify-content: space-between;
 }
 
-#conv-filter{
+#conv-filter {
     border: 3px solid lightseagreen;
     border-radius: 10px;
 }
 
-#output-group{
-    width:250px;
+#output-group {
+    width: 250px;
+}
+
+#conv-output-img {
+    width: 230px;
+    height: 230px;
+    margin-top: 100px;
 }
 
 /*output*/
-#conv-arrow{
+#conv-arrow {
     width: 32px;
     height: auto;
     position: relative;
@@ -125,7 +138,7 @@
 }
 
 /*page buttons*/
-.page-buttons{
+.page-buttons {
     z-index: 100;
     position: fixed;
     top: 5%;
@@ -134,28 +147,28 @@
     justify-content: space-between;
 }
 
-#change-model, #back-button{
+#change-model,
+#back-button {
     margin: 10px 10px;
 }
 
 .floating-menu {
     font-family: sans-serif;
     background: yellowgreen;
-    padding: 5px;;
+    padding: 5px;
     width: 130px;
     z-index: 100;
     position: fixed;
     bottom: 40%;
     left: 5%;
-
 }
-  .floating-menu a, 
-  .floating-menu h3 {
+.floating-menu a,
+.floating-menu h3 {
     font-size: 0.9em;
     display: block;
     margin: 0 0.5em;
     color: white;
-  }
-  p{
+}
+p {
     font-size: xx-large;
-  }
+}
