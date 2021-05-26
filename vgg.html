@@ -66,20 +66,26 @@
                     <div class="input-group">
                         <p class="choose-text">Choose a input image</p>
                         <div id="conv-input-candidate">
-                            <img src="./image_archive/real_input/building_gray.jpg" alt="building" />
-                            <img src="./image_archive/real_input/windflower_gray.jpg" alt="gray" />
-                            <img src="./image_archive/real_input/windflower_gray.jpg" alt="rat image" />
+                            <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
+                            <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
+                            <img alt="windflower2" src="./image_archive/real_input/windflower_gray.jpg" />
                         </div>
+                        <div>
                         <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5 canvas
                             tag.</canvas>
+                            <div id="input-tooltip">
+                                <img src="./image_archive/grid.svg"/>
+                            </div>
+                            
+                    </div>
                         <p class="chosen-text">input</p>
                     </div>
                     <div class="filter-group">
                         <p class="choose-text">Choose a filter</p>
                         <div id="conv-filter-candidate">
-                            <img src="./image_archive/filter/edge_filter.png" alt="edge" />
-                            <img src="./image_archive/filter/edge_filter.png" alt="edge" />
-                            <img src="./image_archive/filter/edge_filter.png" alt="edge" />
+                            <img filterID="edge" src="./image_archive/filter/edge_filter.png" alt="edge" />
+                            <img filterID="" src="./image_archive/filter/edge_filter.png" alt="vertical" />
+                            <img filterID="" src="./image_archive/filter/edge_filter.png" alt="horizontal" />
                         </div>
                         <div id="input-filter-conv">
                             <svg id="grid" width="122px" height="122px">

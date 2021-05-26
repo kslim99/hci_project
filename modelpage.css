@@ -60,6 +60,17 @@
     stroke: black;
 }
 
+#input-tooltip{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#input-tooltip img{
+    width: 15px;
+    height: auto;
+}
+
 /*filter*/
 #conv-interactive-panel .filter-group{
     width: 250px;
@@ -107,8 +118,10 @@
 
 /*output*/
 #conv-arrow{
-    width: 64px;
+    width: 32px;
     height: auto;
+    position: relative;
+    top: 50px;
 }
 
 /*page buttons*/

@@ -1,4 +1,12 @@
 
+let inputID=-1;
+let filterID=-1;
+let inputIDList=['building','windflower','child'];
+let filterIDList=['edge','vertical','horizontal'];
+
+let tooltip = d3.select("#input-tooltip")
+        .style("display", "none");
+
 // interactive panel - conv
 
 d3.select('#conv-input-candidate')
@@ -11,6 +19,8 @@ d3.select('#conv-input-candidate')
 
         let img = this;
         ctx.drawImage(img, 10, 10, targetCanvas.clientWidth - 20, targetCanvas.clientHeight - 20);
+
+        inputID=inputIDList.indexOf(this.alt);
     });
 
 d3.select('#conv-filter-candidate')
@@ -23,14 +33,19 @@ d3.select('#conv-filter-candidate')
 
         let img = this;
         ctx.drawImage(img, 10, 10, targetCanvas.clientWidth - 20, targetCanvas.clientHeight - 20);
+
+        filterID=filterIDList.indexOf(this.alt);
     });
 
 d3.select('#conv-arrow')
     .on('click', function () {
-        /*
-        let imgSpot = document.getElementById("conv-output-img");
-        imgSpot.src == './image_archive/edge_output/building_out.jpg';
-        */
+        if(filterID==-1 || inputID==-1){
+            alert('Finish your input selection & filter selection!');
+        }
+        else{
+            let outputSrc= `./image_archive/output/${filterIDList[filterID]}/${inputIDList[inputID]}_out.jpg`;
+        }
+        
     });
 
 let pixels_row1 = [0, 0, 0];
@@ -101,7 +116,16 @@ d3.select('#row3')
     .style('font-size', 'small')
     .style('text-align', 'center');
 
+
 d3.select('#conv-input')
+    .on('mouseover',function(){
+        tooltip.style("display", null);
+    })
+    .on('mouseout',function(){tooltip.style("display","none");})
+    .on('mousemove',function(e){
+        tooltip.style("left", (e.pageX-7.5) + "px");
+        tooltip.style("top", (e.pageY-7.5) + "px");
+    })
     .on('click', function (event) {
         let clickedX = event.offsetX;
         let clickedY = event.offsetY;
@@ -186,4 +210,5 @@ d3.select('#conv-input')
             .style('fill', d => (d > 128) ? 'black' : 'white')
             .style('font-size', 'small')
             .style('text-align', 'center');
+            
     });
