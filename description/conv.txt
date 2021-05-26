@@ -1,0 +1,4 @@
+ Convolution은 입력으로 주어진 행렬과 이보다 작은 크기의 행렬인 filter의 곱을 통해 output인 feature map을 채우는 것으로, 머신러닝에서는 주로 이미지 내에서 feature를 추출하기 위해 활용된다. 아래의 interactive panel을 통해 확인할 수 있듯이, filter는 자신보다 큰 input matrix를 훑으면서 matrix 내에서 자신의 크기에 해당하는 부분과 matrix-matrix multiplication을 하게 되며, 그 결과로 feature map의 한 칸을 채우게 된다. 이를 input matrix의 모든 부분을 훑을 때까지 진행하므로, n x n input matrix에 m x m filter(m < n)을 적용하면 (n - m + 1) x (n - m + 1) feature map을 얻을 수 있다. 여기서 filter의 각 칸에 들어갈 값은 학습을 통해 얻을 수 있고, 각각 다른 filter를 이용하여 하나의 이미지로부터 여러 feature를 추출할 수 있다.
+Reference:
+https://talkingaboutme.tistory.com/entry/DL-Convolution%EC%9D%98-%EC%A0%95%EC%9D%98
+https://yjjo.tistory.com/8
