@@ -22,6 +22,34 @@
     font-size: 16px;
 }
 
+/********* model structure **************/
+#plus-conv {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: auto;
+    top: 750px;
+    left: 31%;
+}
+
+#plus-pool {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: auto;
+    top: 750px;
+    left: 34%;
+}
+
+#plus-fc {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: auto;
+    top: 710px;
+    left: 62%;
+}
+/********* interactive panel **************/
 #conv-interactive-panel {
     margin: 5px 15px;
     padding-left: 5px;

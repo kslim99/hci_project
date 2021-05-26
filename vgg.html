@@ -46,6 +46,18 @@
         </p>
         <div>
             <a class="section-title" id="model">Model</a>
+            <div id="model-structure">
+                <img src="./image_archive/model/vgg_struct.png" />
+                <a href="#model-conv">
+                    <img id="plus-conv" src="./image_archive/model/plus_conv.svg" />
+                </a>
+                <a href="#model-pool">
+                    <img id="plus-pool" src="./image_archive/model/plus_pool.svg" />
+                </a>
+                <a href="#model-softmax">
+                    <img id="plus-fc" src="./image_archive/model/plus_FC.svg" />
+                </a>
+            </div>
             <p class="description">
                 D3 allows you to bind arbitrary data to a Document Object Model
                 (DOM), and then apply data-driven transformations to the document.
@@ -71,12 +83,13 @@
                             <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
                         </div>
                         <div>
-                        <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5 canvas
-                            tag.</canvas>
+                            <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5
+                                canvas
+                                tag.</canvas>
                             <div id="input-tooltip">
-                                <img src="./image_archive/grid.svg"/>
-                            </div>  
-                    </div>
+                                <img src="./image_archive/grid.svg" />
+                            </div>
+                        </div>
                         <p class="chosen-text">input</p>
                     </div>
                     <div class="filter-group">
@@ -112,7 +125,7 @@
                             <svg width="10" height="10" id="output-tooltip">
                                 <rect id="output-tooltip" x="0" y="0" width="5" height="5"></rect>
                             </svg>
-                        </div>   
+                        </div>
                     </div>
                 </div>
                 <p class="description">
