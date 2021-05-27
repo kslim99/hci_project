@@ -45,6 +45,16 @@
     text-align: center;
 }
 
+#add-paper-area {
+    width: 200px;
+}
+
+#add-paper-area p {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+
 .footer {
     height: 10%;
     width: 100%;
