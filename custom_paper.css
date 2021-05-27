@@ -3,9 +3,11 @@
     justify-content: space-between;
 }
 
-#page-left,
+#page-left {
+    width: 50%;
+}
 #page-right {
-    width: 45%;
+    width: 40%;
 }
 
 #button-group {
@@ -54,4 +56,140 @@
     position: absolute;
     top: 130px;
     right: 0px;
+}
+
+/********* interactive panel **************/
+#conv-interactive-panel {
+    margin: 5px 15px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    background-color: lightgray;
+    display: flex;
+    justify-content: left;
+}
+
+#conv-interactive-panel .input-group {
+    width: 270px;
+    padding: 5px; /*top-right-bottom-left*/
+}
+
+#conv-interactive-panel .choose-text {
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+}
+
+#conv-input-candidate {
+    padding: 0px 20px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#conv-input-candidate img {
+    width: 68px;
+    height: auto;
+}
+
+/*hovered position input*/
+#grid .square {
+    opacity: 0.5;
+    fill: rgb(100, 167, 206);
+    stroke: black;
+}
+
+#input-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#output-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#output-tooltip rect {
+    fill: none;
+    stroke: red;
+    stroke-width: 1.5px;
+}
+
+#input-tooltip img {
+    width: 15px;
+    height: auto;
+}
+
+/*filter*/
+#conv-interactive-panel .filter-group {
+    width: 240px;
+    padding: 5px; /*top-right-bottom-left*/
+}
+
+#conv-filter-candidate {
+    padding: 0px 10px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#conv-filter-candidate img {
+    width: 60px;
+    height: auto;
+}
+
+#conv-filter-name {
+    padding: 0px 10px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#conv-filter-name p {
+    margin-top: 10px;
+    width: 30%;
+    text-align: center;
+    font-size: small;
+}
+
+#conv-input {
+    margin: 5px;
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
+}
+
+.chosen-text {
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+    margin: 0px;
+}
+
+#input-filter-conv {
+    margin-top: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#conv-filter {
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
+}
+
+#output-group {
+    width: 250px;
+}
+
+#conv-output-img {
+    width: 230px;
+    height: 230px;
+    margin-top: 100px;
+    margin-left: 5px;
+}
+
+/*output*/
+#conv-arrow {
+    width: 32px;
+    height: auto;
+    position: relative;
+    top: 50px;
 }

@@ -18,7 +18,65 @@
     </div>
     <div id="page-layout">
         <div id="page-left">
-            <p>Contents</p>
+            <div id="conv-interactive-panel">
+                <div class="input-group">
+                    <p class="choose-text">Choose a input image</p>
+                    <div id="conv-input-candidate">
+                        <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
+                        <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
+                        <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
+                    </div>
+                    <div>
+                        <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5
+                            canvas
+                            tag.</canvas>
+                        <div id="input-tooltip">
+                            <img src="./image_archive/grid.svg" />
+                        </div>
+                    </div>
+                    <p class="chosen-text">input</p>
+                </div>
+                <div class="filter-group">
+                    <p class="choose-text">Choose a filter</p>
+                    <div id="conv-filter-candidate">
+                        <img filterID="edge" src="./image_archive/filter/edge.png" alt="edge" />
+                        <img filterID="vertical" src="./image_archive/filter/vertical.png" alt="vertical" />
+                        <img filterID="horizontal" src="./image_archive/filter/horizontal.png" alt="horizontal" />
+                    </div>
+                    <div id="conv-filter-name">
+                        <p>Edge</p>
+                        <p>Vertical Edge</p>
+                        <p>Horizontal Edge</p>
+                    </div>
+                    <div id="input-filter-conv">
+                        <svg id="grid" width="122px" height="122px">
+                            <g id="row1">
+                            </g>
+                            <g id="row2">
+                            </g>
+                            <g id="row3">
+                            </g>
+                        </svg>
+                        <div id="chosen-filter">
+                            <canvas id="conv-filter" width="100" height="100">Your browser does not support the
+                                HTML5
+                                canvas
+                                tag.</canvas>
+                            <p class="chosen-text">filter</p>
+                        </div>
+                    </div>
+                </div>
+                <img id="conv-arrow" src='./image_archive/right-arrow.svg'>
+                <div id="output-group">
+                    <p class="choose-text">Output</p>
+                    <div id="conv-output">
+                        <img id="conv-output-img" display="none"></img>
+                        <svg width="5" height="5" id="output-tooltip">
+                            <rect id="output-tooltip" x="0" y="0" width="5" height="5"></rect>
+                        </svg>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="page-right">
             <div id="button-group">
