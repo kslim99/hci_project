@@ -185,14 +185,35 @@
     z-index: 100;
     position: fixed;
     top: 5%;
-    right: 20px;
+    right: 0px;
     display: flex;
     justify-content: space-between;
 }
 
 #change-model,
 #back-button {
-    margin: 10px 10px;
+    margin: 10px 20px;
+    width: 64px;
+}
+
+#model-list {
+    z-index: 100;
+    position: fixed;
+    top: 100px;
+    right: 130px;
+    padding: 0px 20px;
+    background: white;
+    border: solid 2px lightseagreen;
+}
+
+#model-list p {
+    font-size: medium;
+}
+
+#model-list-title {
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
 }
 
 .floating-menu {

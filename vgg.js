@@ -7,7 +7,19 @@ let tooltip = d3.select("#input-tooltip").style("display", "none");
 
 let outputTooltip = d3.select("#output-tooltip");
 
-// interactive panel - conv
+// -------------- page buttons --------------
+d3.select("#back-button").on("click", () => {
+    location.href = "./lamp.html";
+});
+
+d3.select("#change-model").on("click", function () {
+    let modelList = d3.select("#model-list");
+    modelList.attr("fold") == "true"
+        ? modelList.classed("fold", false).attr("fold", false)
+        : modelList.classed("fold", true).attr("fold", true);
+});
+
+// -------------- interactive panel (conv) --------------
 
 d3.select("#conv-input-candidate")
     .selectAll("img")
