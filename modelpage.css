@@ -270,3 +270,13 @@ p {
 .paper-description {
     font-size: medium;
 }
+
+/****************** code materials ***********************/
+#code-mat-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.code-mat {
+    width: 40%;
+}

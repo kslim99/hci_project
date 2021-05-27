@@ -16,3 +16,10 @@ d3.select("#submit-paper").on("click", () => {
     sessionStorage.setItem("paperURL", paperURL);
     location.href = "./custom_paper.html";
 });
+
+d3.select("#how-to-add-paper").on("click", () => {
+    let inputPaperHelp = d3.select("#how-to-use");
+    inputPaperHelp.attr("fold") == "true"
+        ? inputPaperHelp.classed("fold", false).attr("fold", false)
+        : inputPaperHelp.classed("fold", true).attr("fold", true);
+});
