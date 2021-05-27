@@ -29,8 +29,12 @@
 
 #banner h1 {
     font-size: 36px;
-    color: lightseagreen;
+    color: rgb(32, 178, 170);
     margin-bottom: 0px;
+}
+
+#paper-url {
+    width: 70%;
 }
 
 .footer {
@@ -48,6 +52,6 @@
 
 #the-canvas {
     position: absolute;
-    top: 120px;
+    top: 130px;
     right: 0px;
 }

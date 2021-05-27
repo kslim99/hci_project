@@ -55,6 +55,21 @@
     width: 200px;
 }
 
+#submit-paper-field {
+    z-index: 100;
+    position: fixed;
+    top: 520px;
+    right: 200px;
+    padding: 20px 20px;
+    background: white;
+    border: solid 2px lightseagreen;
+}
+
+#submit-paper-field input {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 .footer {
     height: 10%;
     width: 100%;
@@ -66,4 +81,8 @@
     position: fixed;
     bottom: 0px;
     left: 0px;
+}
+
+.fold {
+    display: none;
 }
