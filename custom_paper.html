@@ -5,16 +5,28 @@
     <meta charset="utf-8" />
     <title>LAMP</title>
     <!--including css-->
-    <link rel="stylesheet" href="lamp.css">
+    <link rel="stylesheet" href="custom_paper.css">
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://d3js.org/d3-fetch.v2.min.js"></script>
+    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
 </head>
 
 <body>
-    <div class="page-layout">
-        <div id="banner">
-            <img src="./image_archive/desk-lamp.svg" alt="LAMP image" />
-            <h1 id="page-name">LAMP</h1>
+    <div id="banner">
+        <img src="./image_archive/desk-lamp.svg" alt="LAMP image" />
+        <h1 id="page-name">LAMP</h1>
+    </div>
+    <div id="page-layout">
+        <div id="page-left">
+            <p>Contents</p>
+        </div>
+        <div id="page-right">
+            <div id="button-group">
+                <button id="prev">Previous</button>
+                <button id="next">Next</button>
+                <span>Page: <span id="page_num"></span> / <span id="page_count"></span></span>
+            </div>
+            <canvas id="the-canvas"></canvas>
         </div>
     </div>
     <div class="footer">
