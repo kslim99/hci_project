@@ -19,6 +19,22 @@ d3.select("#change-model").on("click", function () {
         : modelList.classed("fold", true).attr("fold", true);
 });
 
+d3.select("#chagne2vgg").on("click", () => {
+    location.href = "./vgg.html";
+});
+
+d3.select("#change2model2").on("click", () => {
+    location.href = "./model2.html";
+});
+
+d3.select("#change2model3").on("click", () => {
+    location.href = "./model3.html";
+});
+
+d3.select("#change2model4").on("click", () => {
+    location.href = "./model4.html";
+});
+
 // -------------- interactive panel (conv) --------------
 
 d3.select("#conv-input-candidate")
