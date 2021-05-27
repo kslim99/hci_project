@@ -68,6 +68,15 @@ function queueRenderPage(num) {
     }
 }
 
+function queueSetRenderPage(num) {
+    if (pageRendering) {
+        pageNumPending = num;
+    } else {
+        renderPage(num);
+        pageNum = num;
+    }
+}
+
 /**
  * Displays previous page.
  */
@@ -335,3 +344,88 @@ d3.select("#conv-input")
             .style("font-size", "small")
             .style("text-align", "center");
     });
+
+d3.text("./papers/VGG/abstract.txt").then(function (text) {
+    d3.select("#paper-abstract").select(".paper-description").text(text);
+});
+
+d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
+    d3.select("#paper-arc-input").select(".paper-description").text(text);
+});
+
+d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
+    d3.select("#paper-arc-model").select(".paper-description").text(text);
+});
+
+// descriptions
+d3.text("./description/model_overview.txt").then(function (text) {
+    d3.select("#section-model-overview").select(".description").text(text);
+});
+
+d3.text("./description/input.txt").then(function (text) {
+    d3.select("#section-input").select(".description").text(text);
+});
+
+d3.text("./description/vgg.txt").then(function (text) {
+    d3.select("#section-model").select(".description").text(text);
+});
+
+d3.text("./description/conv.txt").then(function (text) {
+    d3.select("#section-model").select(".description").text(text);
+});
+
+d3.text("./description/conv.txt").then(function (text) {
+    d3.select(".subsection.conv").select(".description").text(text);
+});
+
+d3.text("./description/pooling.txt").then(function (text) {
+    d3.select(".subsection.pooling").select(".description").text(text);
+});
+
+d3.text("./description/softmax.txt").then(function (text) {
+    d3.select(".subsection.softmax").select(".description").text(text);
+});
+
+d3.text("./description/output.txt").then(function (text) {
+    d3.select("#section-output").select(".description").text(text);
+});
+
+d3.select("#conv-paper").on("click", () => {
+    queueSetRenderPage(3);
+});
+
+d3.select("#pooling-paper").on("click", () => {
+    queueSetRenderPage(4);
+});
+
+d3.select("#softmax-paper").on("click", () => {
+    queueSetRenderPage(4);
+});
+
+// -------------- page buttons --------------
+d3.select("#back-button").on("click", () => {
+    location.href = "./lamp.html";
+});
+
+d3.select("#change-model").on("click", function () {
+    let modelList = d3.select("#model-list");
+    modelList.attr("fold") == "true"
+        ? modelList.classed("fold", false).attr("fold", false)
+        : modelList.classed("fold", true).attr("fold", true);
+});
+
+d3.select("#chagne2vgg").on("click", () => {
+    location.href = "./vgg.html";
+});
+
+d3.select("#change2model2").on("click", () => {
+    location.href = "./model2.html";
+});
+
+d3.select("#change2model3").on("click", () => {
+    location.href = "./model3.html";
+});
+
+d3.select("#change2model4").on("click", () => {
+    location.href = "./model4.html";
+});

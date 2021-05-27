@@ -188,7 +188,7 @@
     top: 50px;
 }
 
-/*page buttons*/
+/*************** page buttons ****************/
 .page-buttons {
     z-index: 100;
     position: fixed;
@@ -224,6 +224,7 @@
     font-weight: bold;
 }
 
+/********************** floating menu ***************************/
 .floating-menu {
     font-family: sans-serif;
     background: lightseagreen;
