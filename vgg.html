@@ -53,13 +53,17 @@
                 <a class="section-title" id="model">Model</a>
                 <img id="model-paper" width="32" height="32" src="./image_archive/document.svg">
             </div>
+            <p class="description" />
+            <p class="reference">Reference: <a href="https://www.image-net.org/challenges/LSVRC/2014/index.php">ImageNet
+                    Large Scale
+                    Visual Recognition Challenge. IJCV, 2015</a></p>
             <div id="paper-arc-model" class="paper-group fold" fold=true>
                 <p class="paper-title">Model architecture</p>
                 <p class="paper-description">
                 </p>
             </div>
             <div id="model-structure">
-                <img src="./image_archive/model/vgg_struct.png" />
+                <img id="model-struct" src="./image_archive/model/vgg_struct.png" />
                 <a href="#model-conv">
                     <img id="plus-conv" src="./image_archive/model/plus_conv.svg" />
                 </a>
@@ -70,9 +74,11 @@
                     <img id="plus-fc" src="./image_archive/model/plus_FC.svg" />
                 </a>
             </div>
-            <p class="description" />
+            <p id="overall-pipeline" class="description" />
             <div class="subsection conv">
                 <a class="section-subtitle" id="model-conv">Conv</a>
+                <p class="description">
+                </p>
                 <div id="conv-interactive-panel">
                     <div class="input-group">
                         <p class="choose-text">Choose a input image</p>
@@ -132,8 +138,10 @@
                         </div>
                     </div>
                 </div>
-                <p class="description">
-                </p>
+                <p class="description" id="conv-stride"></p>
+                <div id="stride-interactive-panel">
+                    <p> Interactive panel will be added soon.</p>
+                </div>
             </div>
             <div class="subsection pooling">
                 <a class="section-subtitle" id="model-pool">Pooling</a>

@@ -25,12 +25,16 @@
 }
 
 /********* model structure **************/
+#model-struct {
+    width: 100%;
+}
+
 #plus-conv {
     display: inline-block;
     position: absolute;
     width: 32px;
     height: auto;
-    top: 900px;
+    top: 1040px;
     left: 31%;
 }
 
@@ -39,8 +43,8 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 900px;
-    left: 34%;
+    top: 1040px;
+    left: 33.5%;
 }
 
 #plus-fc {
@@ -48,8 +52,8 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 860px;
-    left: 62%;
+    top: 1020px;
+    left: 70%;
 }
 
 /********* interactive panel **************/
@@ -188,6 +192,15 @@
     top: 50px;
 }
 
+/****************** interactive 2 ******************/
+#stride-interactive-panel {
+    background: gainsboro;
+}
+
+#stride-interactive-panel p {
+    padding: 10px;
+}
+
 /*************** page buttons ****************/
 .page-buttons {
     z-index: 100;
@@ -279,4 +292,8 @@ p {
 
 .code-mat {
     width: 40%;
+}
+
+.reference {
+    font-size: medium;
 }

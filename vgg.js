@@ -308,12 +308,20 @@ d3.text("./description/vgg.txt").then(function (text) {
     d3.select("#section-model").select(".description").text(text);
 });
 
-d3.text("./description/conv.txt").then(function (text) {
+d3.text("./description/model_overview.txt").then(function (text) {
     d3.select("#section-model").select(".description").text(text);
+});
+
+d3.text("./description/overall_pipeline.txt").then(function (text) {
+    d3.select("#overall-pipeline").text(text);
 });
 
 d3.text("./description/conv.txt").then(function (text) {
     d3.select(".subsection.conv").select(".description").text(text);
+});
+
+d3.text("./description/conv2.txt").then(function (text) {
+    d3.select("#conv-stride").text(text);
 });
 
 d3.text("./description/pooling.txt").then(function (text) {

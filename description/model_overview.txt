@@ -1,5 +1,1 @@
  VGG는 대규모 이미지 및 비디오 인식에 쓰이는 기계 학습 모델인 Convolutional Neural Network(CNN)의 일종으로, 2015년(논문 발표일 기준) Oxford 대학의 K.Simonyan과 A. Zisserman에 의해 제시되었다. 이 모델은 이미지를 입력으로 받아 convolution과 pooling, 그리고 softmax로 이루어진 여러 layer를 거쳐 이미지 분류 결과를 도출한다. 성능을 높이기 위해 기존에 존재하던 다른 모델들에 비해 작은 크기의 filter를 사용하여 convolution layer의 수를 늘린 것이 특징으로, 간단한 구조를 가지면서도 준수한 성능을 낸다. ILSVRC-2014 challenge의 classification task에서 GoogLeNet에 이어 2위, single-net performance에서는 1위를 기록하였다.
-
-Reference:
-https://www.image-net.org/challenges/LSVRC/2014/index.php
-Olga Russakovsky*, Jia Deng*, Hao Su, Jonathan Krause, Sanjeev Satheesh, Sean Ma, Zhiheng Huang, Andrej Karpathy, Aditya Khosla, Michael Bernstein, Alexander C. Berg and Li Fei-Fei. (* = equal contribution) ImageNet Large Scale Visual Recognition Challenge. IJCV, 2015.
