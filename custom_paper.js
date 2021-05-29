@@ -254,8 +254,8 @@ d3.select("#conv-input")
     .on("mousemove", function (e) {
         tooltip.style("left", e.pageX - 7.5 + "px");
         tooltip.style("top", e.pageY - 7.5 + "px");
-        outputTooltip.style("left", e.pageX - 7.5 + 530 + "px");
-        outputTooltip.style("top", e.pageY - 7.5 + "px");
+        outputTooltip.style("left", e.pageX - 7.5 + 530 + 20 + "px");
+        outputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
     .on("click", function (event) {
         let clickedX = event.offsetX;
