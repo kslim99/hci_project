@@ -3,9 +3,11 @@ let filterID = -1;
 let inputIDList = ["building", "windflower", "child"];
 let filterIDList = ["edge", "vertical", "horizontal"];
 
-let tooltip = d3.select("#input-tooltip").style("display", "none");
+let tooltip = d3.select("#input-tooltip");
+tooltip.style("display", "none");
 
 let outputTooltip = d3.select("#output-tooltip");
+outputTooltip.style("display", "none");
 
 // -------------- page buttons --------------
 d3.select("#back-button").on("click", () => {
@@ -159,19 +161,19 @@ d3.select("#row3")
 d3.select("#conv-input")
     .on("mouseover", function () {
         tooltip.style("display", null);
-        //outputTooltip.style("display", null);
+        outputTooltip.style("display", null);
     })
     .on("mouseout", function () {
-        tooltip.style("display", "none");
+        //tooltip.style("display", "none");
         //outputTooltip.style("display", "none");
     })
-    .on("mousemove", function (e) {
+    .on("mousemove.e1", function (e) {
         tooltip.style("left", e.pageX - 7.5 + "px");
         tooltip.style("top", e.pageY - 7.5 + "px");
         outputTooltip.style("left", e.pageX - 7.5 + 530 + 20 + "px");
         outputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
-    .on("click", function (event) {
+    .on("mousemove.e2", function (event) {
         let clickedX = event.offsetX;
         let clickedY = event.offsetY;
 
@@ -192,7 +194,7 @@ d3.select("#conv-input")
             .attr("x", (d, i) => 40 * i + 7)
             .attr("y", 1)
             .transition()
-            .duration(500)
+            .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
         d3.select("#row1")
@@ -202,7 +204,7 @@ d3.select("#conv-input")
             .attr("x", (d, i) => 40 * i + 11)
             .attr("y", 22)
             .transition()
-            .duration(500)
+            .duration(200)
             .text((d) => (d / 256).toFixed(2))
             .style("fill", (d) => (d > 128 ? "black" : "white"))
             .style("font-size", "small")
@@ -217,7 +219,7 @@ d3.select("#conv-input")
             .attr("x", (d, i) => 40 * i + 7)
             .attr("y", 42)
             .transition()
-            .duration(500)
+            .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
         d3.select("#row2")
@@ -227,7 +229,7 @@ d3.select("#conv-input")
             .attr("x", (d, i) => 40 * i + 11)
             .attr("y", 62)
             .transition()
-            .duration(500)
+            .duration(200)
             .text((d) => (d / 256).toFixed(2))
             .style("fill", (d) => (d > 128 ? "black" : "white"))
             .style("font-size", "small")
@@ -242,7 +244,7 @@ d3.select("#conv-input")
             .attr("x", (d, i) => 40 * i + 7)
             .attr("y", 82)
             .transition()
-            .duration(500)
+            .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
         d3.select("#row3")
@@ -252,7 +254,7 @@ d3.select("#conv-input")
             .attr("x", (d, i) => 40 * i + 11)
             .attr("y", 102)
             .transition()
-            .duration(500)
+            .duration(200)
             .text((d) => (d / 256).toFixed(2))
             .style("fill", (d) => (d > 128 ? "black" : "white"))
             .style("font-size", "small")

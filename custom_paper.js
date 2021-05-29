@@ -119,9 +119,11 @@ let filterID = -1;
 let inputIDList = ["building", "windflower", "child"];
 let filterIDList = ["edge", "vertical", "horizontal"];
 
-let tooltip = d3.select("#input-tooltip").style("display", "none");
+let tooltip = d3.select("#input-tooltip");
+tooltip.style("display", "none");
 
 let outputTooltip = d3.select("#output-tooltip");
+outputTooltip.style("display", "none");
 
 d3.select("#conv-input-candidate")
     .selectAll("img")
@@ -245,19 +247,19 @@ d3.select("#row3")
 d3.select("#conv-input")
     .on("mouseover", function () {
         tooltip.style("display", null);
-        //outputTooltip.style("display", null);
+        outputTooltip.style("display", null);
     })
     .on("mouseout", function () {
-        tooltip.style("display", "none");
+        //tooltip.style("display", "none");
         //outputTooltip.style("display", "none");
     })
-    .on("mousemove", function (e) {
+    .on("mousemove.e1", function (e) {
         tooltip.style("left", e.pageX - 7.5 + "px");
         tooltip.style("top", e.pageY - 7.5 + "px");
         outputTooltip.style("left", e.pageX - 7.5 + 530 + 20 + "px");
         outputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
-    .on("click", function (event) {
+    .on("mousemove.e2", function (event) {
         let clickedX = event.offsetX;
         let clickedY = event.offsetY;
 
