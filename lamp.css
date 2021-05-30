@@ -63,6 +63,7 @@
 }
 
 #add-paper-area {
+    padding-top: 100px;
     width: 200px;
 }
 
@@ -75,7 +76,7 @@
 #submit-paper-field {
     z-index: 100;
     position: fixed;
-    top: 520px;
+    top: 600px;
     right: 200px;
     padding: 20px 20px;
     background: white;
@@ -96,7 +97,7 @@
     width: 300px;
     z-index: 100;
     position: fixed;
-    top: 350px;
+    top: 300px;
     right: 150px;
     padding: 20px 20px;
     background: white;
@@ -105,8 +106,8 @@
 
 #how-to-add-paper {
     position: fixed;
-    top: 300px;
-    right: 200px;
+    top: 500px;
+    right: 300px;
     width: 64px;
 }
 

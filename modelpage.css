@@ -34,7 +34,7 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 1040px;
+    top: 1000px;
     left: 31%;
 }
 
@@ -43,7 +43,7 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 1040px;
+    top: 1000px;
     left: 33.5%;
 }
 
@@ -52,7 +52,7 @@
     position: absolute;
     width: 32px;
     height: auto;
-    top: 1020px;
+    top: 990px;
     left: 70%;
 }
 
@@ -296,4 +296,10 @@ p {
 
 .reference {
     font-size: medium;
+}
+
+/******************** coverage ********************************/
+#section-coverage {
+    background-color: lightgrey;
+    padding: 5px 10px;
 }
