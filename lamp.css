@@ -45,6 +45,23 @@
     text-align: center;
 }
 
+.model-choice .citation {
+    font-size: 16px;
+    text-align: right;
+    font-weight: bold;
+    color: blue;
+}
+
+.model-choice .level {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.model-choice .level img {
+    width: 32px;
+    margin: 0px 5px;
+}
+
 #add-paper-area {
     width: 200px;
 }
