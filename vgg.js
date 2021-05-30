@@ -170,7 +170,7 @@ d3.select("#conv-input")
     .on("mousemove.e1", function (e) {
         tooltip.style("left", e.pageX - 7.5 + "px");
         tooltip.style("top", e.pageY - 7.5 + "px");
-        outputTooltip.style("left", e.pageX - 7.5 + 530 + 20 + "px");
+        outputTooltip.style("left", e.pageX - 7.5 + 530 + 17 + "px");
         outputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
     .on("mousemove.e2", function (event) {
