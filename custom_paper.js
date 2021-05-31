@@ -431,3 +431,5 @@ d3.select("#change2model3").on("click", () => {
 d3.select("#change2model4").on("click", () => {
     location.href = "./model4.html";
 });
+
+const { spawn } = require("child_process");
