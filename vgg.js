@@ -357,7 +357,7 @@ let pooling_pixels_row1 = [0, 0];
 let pooling_pixels_row2 = [0, 0];
 
 // initialize
-d3.select("#input-filter-pool")
+d3.select("#pooling-process")
     .select(".grid")
     .select(".row1")
     .selectAll("rect")
@@ -369,7 +369,7 @@ d3.select("#input-filter-pool")
     .attr("y", 1)
     .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-d3.select("#input-filter-pool")
+d3.select("#pooling-process")
     .select(".grid")
     .select(".row1")
     .selectAll("text")
@@ -382,7 +382,7 @@ d3.select("#input-filter-pool")
     .style("font-size", "small")
     .style("text-align", "center");
 
-d3.select("#input-filter-pool")
+d3.select("#pooling-process")
     .select(".grid")
     .select(".row2")
     .selectAll("rect")
@@ -394,7 +394,7 @@ d3.select("#input-filter-pool")
     .attr("y", 42)
     .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-d3.select("#input-filter-pool")
+d3.select("#pooling-process")
     .select(".grid")
     .select(".row2")
     .selectAll("text")
@@ -433,7 +433,7 @@ d3.select("#pool-input")
         pooling_pixels_row1 = myImageData.slice(0, 2);
         pooling_pixels_row2 = myImageData.slice(2, 4);
 
-        d3.select("#input-filter-pool")
+        d3.select("#pooling-process")
             .select(".grid")
             .select(".row1")
             .selectAll("rect")
@@ -447,7 +447,7 @@ d3.select("#pool-input")
             .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-        d3.select("#input-filter-pool")
+        d3.select("#pooling-process")
             .select(".grid")
             .select(".row1")
             .selectAll("text")
@@ -462,7 +462,7 @@ d3.select("#pool-input")
             .style("font-size", "small")
             .style("text-align", "center");
 
-        d3.select("#input-filter-pool")
+        d3.select("#pooling-process")
             .select(".grid")
             .select(".row2")
             .selectAll("rect")
@@ -476,7 +476,7 @@ d3.select("#pool-input")
             .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-        d3.select("#input-filter-pool")
+        d3.select("#pooling-process")
             .select(".grid")
             .select(".row2")
             .selectAll("text")

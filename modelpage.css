@@ -246,7 +246,7 @@
 }
 
 /*hovered position input*/
-#input-filter-pool .grid .square {
+#pooling-process .grid .square {
     opacity: 0.5;
     fill: rgb(100, 167, 206);
     stroke: black;
@@ -314,10 +314,26 @@
 
 #pool-filter-name p {
     margin-top: 10px;
-    width: 140px;
+    width: 135px;
     text-align: center;
     font-size: small;
     font-weight: bold;
+}
+
+/* pooling process */
+#pooling-arrow img {
+    width: 50px;
+}
+
+#pooling-arrow p {
+    margin: 0px;
+    width: 50px;
+    font-size: small;
+    text-align: center;
+}
+
+#pooled-pixel svg {
+    margin-top: 20px;
 }
 
 #pool-input {
@@ -326,10 +342,10 @@
     border-radius: 10px;
 }
 
-#input-filter-pool {
+#pooling-process {
     margin-top: 15%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #pool-output-img {
