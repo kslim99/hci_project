@@ -34,7 +34,7 @@
                 <p class="paper-description">
                 </p>
             </div>
-            <p class="description" />
+            <p class="description"></p>
         </div>
         <div id="section-input">
             <div class="section-title-container">
@@ -81,7 +81,7 @@
                 </p>
                 <div id="conv-interactive-panel">
                     <div class="input-group">
-                        <p class="choose-text">Choose a input image</p>
+                        <p class="choose-text">Choose an input image</p>
                         <div id="conv-input-candidate">
                             <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
                             <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
@@ -91,7 +91,7 @@
                             <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5
                                 canvas
                                 tag.</canvas>
-                            <div id="input-tooltip">
+                            <div class="input-tooltip">
                                 <img src="./image_archive/grid.svg" />
                             </div>
                         </div>
@@ -110,15 +110,15 @@
                             <p>Horizontal Edge</p>
                         </div>
                         <div id="input-filter-conv">
-                            <svg id="grid" width="122px" height="122px">
-                                <g id="row1">
+                            <svg class="grid" width="122px" height="122px">
+                                <g class="row1">
                                 </g>
-                                <g id="row2">
+                                <g class="row2">
                                 </g>
-                                <g id="row3">
+                                <g class="row3">
                                 </g>
                             </svg>
-                            <div id="chosen-filter">
+                            <div class="chosen-filter">
                                 <canvas id="conv-filter" width="100" height="100">Your browser does not support the
                                     HTML5
                                     canvas
@@ -127,13 +127,13 @@
                             </div>
                         </div>
                     </div>
-                    <img id="conv-arrow" src='./image_archive/right-arrow.svg'>
-                    <div id="output-group">
+                    <img class="conv-arrow" src='./image_archive/right-arrow.svg'>
+                    <div class="output-group">
                         <p class="choose-text">Output</p>
                         <div id="conv-output">
                             <img id="conv-output-img" display="none"></img>
-                            <svg width="5" height="5" id="output-tooltip">
-                                <rect id="output-tooltip" x="0" y="0" width="5" height="5"></rect>
+                            <svg width="5" height="5" class="output-tooltip">
+                                <rect x="0" y="0" width="5" height="5"></rect>
                             </svg>
                         </div>
                         <div class="interactive-how-to">
@@ -148,8 +148,68 @@
             </div>
             <div class="subsection pooling">
                 <a class="section-subtitle" id="model-pool">Pooling</a>
-                <div class="interactive-panel pool">
-
+                <p class="description">
+                </p>
+                <div id="pool-interactive-panel">
+                    <div class="input-group">
+                        <p class="choose-text">Choose an input image</p>
+                        <div id="pool-input-candidate">
+                            <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
+                            <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
+                            <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
+                        </div>
+                        <div>
+                            <canvas id="pool-input" width="250" height="250">Your browser does not support the HTML5
+                                canvas
+                                tag.</canvas>
+                            <div class="input-tooltip">
+                                <img src="./image_archive/grid.svg" />
+                            </div>
+                        </div>
+                        <p class="chosen-text">input</p>
+                    </div>
+                    <div class="filter-group">
+                        <p class="choose-text">Choose a filter</p>
+                        <div id="pool-filter-candidate">
+                            <img filterID="edge" src="./image_archive/filter/edge.png" alt="edge" />
+                            <img filterID="vertical" src="./image_archive/filter/vertical.png" alt="vertical" />
+                            <img filterID="horizontal" src="./image_archive/filter/horizontal.png" alt="horizontal" />
+                        </div>
+                        <div id="pool-filter-name">
+                            <p>Max Pooling</p>
+                            <p>Average Pooling</p>
+                        </div>
+                        <div id="input-filter-pool">
+                            <svg class="grid" width="122px" height="122px">
+                                <g class="row1">
+                                </g>
+                                <g class="row2">
+                                </g>
+                                <g class="row3">
+                                </g>
+                            </svg>
+                            <div class="chosen-filter">
+                                <canvas id="pool-filter" width="100" height="100">Your browser does not support the
+                                    HTML5
+                                    canvas
+                                    tag.</canvas>
+                                <p class="chosen-text">filter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="conv-arrow" src='./image_archive/right-arrow.svg'>
+                    <div class="output-group">
+                        <p class="choose-text">Output</p>
+                        <div id="pool-output">
+                            <img id="pool-output-img" display="none"></img>
+                            <svg width="5" height="5" class="output-tooltip">
+                                <rect x="0" y="0" width="5" height="5"></rect>
+                            </svg>
+                        </div>
+                        <div class="interactive-how-to">
+                            <img src="./image_archive/question.svg" />
+                        </div>
+                    </div>
                 </div>
                 <p class="description" />
             </div>

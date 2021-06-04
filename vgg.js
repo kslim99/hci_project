@@ -3,11 +3,13 @@ let filterID = -1;
 let inputIDList = ["building", "windflower", "child"];
 let filterIDList = ["edge", "vertical", "horizontal"];
 
-let tooltip = d3.select("#input-tooltip");
-tooltip.style("display", "none");
+let convInputTooltip = d3
+    .select("#conv-interactive-panel")
+    .select(".input-tooltip");
+convInputTooltip.style("display", "none");
 
-let outputTooltip = d3.select("#output-tooltip");
-outputTooltip.style("display", "none");
+let convOutputTooltip = d3.select("#conv-output").select(".output-tooltip");
+convOutputTooltip.style("display", "none");
 
 // -------------- page buttons --------------
 d3.select("#back-button").on("click", () => {
@@ -79,23 +81,29 @@ d3.select("#conv-filter-candidate")
         filterID = filterIDList.indexOf(this.alt);
     });
 
-d3.select("#conv-arrow").on("click", function () {
-    let outputSrc;
-    if (filterID == -1 || inputID == -1) {
-        alert("Finish your input selection & filter selection!");
-    } else {
-        outputSrc = `./image_archive/output/${filterIDList[filterID]}/${inputIDList[inputID]}_out.jpg`;
-    }
+d3.select("#conv-interactive-panel")
+    .select(".conv-arrow")
+    .on("click", function () {
+        let outputSrc;
+        if (filterID == -1 || inputID == -1) {
+            alert("Finish your input selection & filter selection!");
+        } else {
+            outputSrc = `./image_archive/output/${filterIDList[filterID]}/${inputIDList[inputID]}_out.jpg`;
+        }
 
-    d3.select("#conv-output-img").attr("src", outputSrc).style("display", null);
-});
+        d3.select("#conv-output-img")
+            .attr("src", outputSrc)
+            .style("display", null);
+    });
 
 let pixels_row1 = [0, 0, 0];
 let pixels_row2 = [0, 0, 0];
 let pixels_row3 = [0, 0, 0];
 
 // initialize
-d3.select("#row1")
+d3.select("#input-filter-conv")
+    .select(".grid")
+    .select(".row1")
     .selectAll("rect")
     .data(pixels_row1, (d) => d)
     .join("rect")
@@ -105,7 +113,9 @@ d3.select("#row1")
     .attr("y", 1)
     .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-d3.select("#row1")
+d3.select("#input-filter-conv")
+    .select(".grid")
+    .select(".row1")
     .selectAll("text")
     .data(pixels_row1, (d) => d)
     .join("text")
@@ -116,7 +126,9 @@ d3.select("#row1")
     .style("font-size", "small")
     .style("text-align", "center");
 
-d3.select("#row2")
+d3.select("#input-filter-conv")
+    .select(".grid")
+    .select(".row2")
     .selectAll("rect")
     .data(pixels_row2, (d) => d)
     .join("rect")
@@ -126,7 +138,9 @@ d3.select("#row2")
     .attr("y", 42)
     .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-d3.select("#row2")
+d3.select("#input-filter-conv")
+    .select(".grid")
+    .select(".row2")
     .selectAll("text")
     .data(pixels_row2, (d) => d)
     .join("text")
@@ -137,7 +151,9 @@ d3.select("#row2")
     .style("font-size", "small")
     .style("text-align", "center");
 
-d3.select("#row3")
+d3.select("#input-filter-conv")
+    .select(".grid")
+    .select(".row3")
     .selectAll("rect")
     .data(pixels_row3, (d) => d)
     .join("rect")
@@ -147,7 +163,9 @@ d3.select("#row3")
     .attr("y", 82)
     .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-d3.select("#row3")
+d3.select("#input-filter-conv")
+    .select(".grid")
+    .select(".row3")
     .selectAll("text")
     .data(pixels_row3, (d) => d)
     .join("text")
@@ -160,18 +178,18 @@ d3.select("#row3")
 
 d3.select("#conv-input")
     .on("mouseover", function () {
-        tooltip.style("display", null);
-        outputTooltip.style("display", null);
+        convInputTooltip.style("display", null);
+        convOutputTooltip.style("display", null);
     })
     .on("mouseout", function () {
         //tooltip.style("display", "none");
         //outputTooltip.style("display", "none");
     })
     .on("mousemove.e1", function (e) {
-        tooltip.style("left", e.pageX - 7.5 + "px");
-        tooltip.style("top", e.pageY - 7.5 + "px");
-        outputTooltip.style("left", e.pageX - 7.5 + 530 + 17 + "px");
-        outputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
+        convInputTooltip.style("left", e.pageX - 7.5 + "px");
+        convInputTooltip.style("top", e.pageY - 7.5 + "px");
+        convOutputTooltip.style("left", e.pageX - 7.5 + 530 + 17 + "px");
+        convOutputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
     .on("mousemove.e2", function (event) {
         let clickedX = event.offsetX;
@@ -185,7 +203,9 @@ d3.select("#conv-input")
         pixels_row2 = myImageData.slice(3, 6);
         pixels_row3 = myImageData.slice(6, 9);
 
-        d3.select("#row1")
+        d3.select("#input-filter-conv")
+            .select(".grid")
+            .select(".row1")
             .selectAll("rect")
             .data(pixels_row1, (d) => d)
             .join("rect")
@@ -197,7 +217,9 @@ d3.select("#conv-input")
             .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-        d3.select("#row1")
+        d3.select("#input-filter-conv")
+            .select(".grid")
+            .select(".row1")
             .selectAll("text")
             .data(pixels_row1, (d) => d)
             .join("text")
@@ -210,7 +232,9 @@ d3.select("#conv-input")
             .style("font-size", "small")
             .style("text-align", "center");
 
-        d3.select("#row2")
+        d3.select("#input-filter-conv")
+            .select(".grid")
+            .select(".row2")
             .selectAll("rect")
             .data(pixels_row2, (d) => d)
             .join("rect")
@@ -222,7 +246,9 @@ d3.select("#conv-input")
             .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-        d3.select("#row2")
+        d3.select("#input-filter-conv")
+            .select(".grid")
+            .select(".row2")
             .selectAll("text")
             .data(pixels_row2, (d) => d)
             .join("text")
@@ -235,7 +261,9 @@ d3.select("#conv-input")
             .style("font-size", "small")
             .style("text-align", "center");
 
-        d3.select("#row3")
+        d3.select("#input-filter-conv")
+            .select(".grid")
+            .select(".row3")
             .selectAll("rect")
             .data(pixels_row3, (d) => d)
             .join("rect")
@@ -247,7 +275,9 @@ d3.select("#conv-input")
             .duration(200)
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
-        d3.select("#row3")
+        d3.select("#input-filter-conv")
+            .select(".grid")
+            .select(".row3")
             .selectAll("text")
             .data(pixels_row3, (d) => d)
             .join("text")
