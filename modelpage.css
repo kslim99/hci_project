@@ -289,8 +289,9 @@
 }
 
 #pool-filter-candidate img {
-    width: 140px;
+    width: 135px;
     height: auto;
+    border: 1px solid gray;
 }
 
 #pool-filter-candidate svg {
