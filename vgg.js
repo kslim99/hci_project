@@ -328,24 +328,14 @@ d3.select("#pool-filter-candidate")
     .selectAll("img")
     .on("click", function () {
         poolingMode = poolingModeList.indexOf(this.alt);
-        console.log(poolingMode);
 
         let selectedBorer = d3.select("#pool-filter-candidate").select("svg");
         selectedBorer.style("top", this.offsetTop - 5);
         selectedBorer.style("left", this.offsetLeft - 5);
-        /*
-        let yOffset = 100; //default for max pooling
 
-        if (this.alt == "avg") {
-            yOffset = 200;
+        if (selectedBorer.attr("fold") == "true") {
+            selectedBorer.classed("fold", false).attr("fold", false);
         }
-        selectedBorer.style("right", yOffset);
-
-
-        selectedBorer.attr("fold") == "true"
-            ? selectedBorer.classed("fold", false).attr("fold", false)
-            : selectedBorer.classed("fold", true).attr("fold", true);
-            */
     });
 
 d3.select("#pool-interactive-panel")
