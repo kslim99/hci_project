@@ -56,7 +56,7 @@
     left: 70%;
 }
 
-/********* interactive panel **************/
+/********* interactive panel (conv) **************/
 #conv-interactive-panel {
     margin: 5px 15px;
     padding-left: 5px;
@@ -173,16 +173,16 @@
     border-radius: 10px;
 }
 
-.output-group {
+#conv-interactive-panel .output-group {
     width: 250px;
 }
 
-.output-group .interactive-how-to {
+#conv-interactive-panel .output-group .interactive-how-to {
     display: flex;
     justify-content: flex-end;
 }
 
-.output-group .interactive-how-to img {
+#conv-interactive-panel .output-group .interactive-how-to img {
     width: 32px;
     padding-right: 10px;
 }
@@ -211,6 +211,146 @@
     padding: 10px;
 }
 
+/**************** interactive panel (pool) ****************/
+#pool-interactive-panel {
+    margin: 5px 15px;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-color: lightseagreen;
+    border-radius: 10px;
+    display: flex;
+    justify-content: left;
+}
+
+#pool-interactive-panel .input-group {
+    width: 270px;
+    padding: 5px; /*top-right-bottom-left*/
+}
+
+#pool-interactive-panel .choose-text {
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+}
+
+#pool-input-candidate {
+    padding: 0px 20px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#pool-input-candidate img {
+    width: 68px;
+    height: auto;
+}
+
+/*hovered position input*/
+#input-filter-pool .grid .square {
+    opacity: 0.5;
+    fill: rgb(100, 167, 206);
+    stroke: black;
+}
+
+#pool-interactive-panel .input-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#pool-output .output-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#pool-output .output-tooltip rect {
+    fill: none;
+    stroke: red;
+    stroke-width: 1.5px;
+}
+
+#pool-interactive-panel .input-tooltip img {
+    width: 11px;
+    height: auto;
+}
+
+/*filter*/
+#pool-interactive-panel .filter-group {
+    width: 330px;
+    padding: 5px; /*top-right-bottom-left*/
+}
+
+#pool-filter-candidate {
+    padding: 0px 10px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#pool-filter-candidate img {
+    width: 140px;
+    height: auto;
+}
+
+#pool-filter-candidate svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#pool-filter-candidate rect {
+    fill: none;
+    stroke: lightseagreen;
+    stroke-width: 3px;
+}
+
+#pool-filter-name {
+    padding: 0px 10px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#pool-filter-name p {
+    margin-top: 10px;
+    width: 140px;
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+}
+
+#pool-input {
+    margin: 5px;
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
+}
+
+#input-filter-pool {
+    margin-top: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#pool-output-img {
+    width: 140px;
+    height: 140px;
+    margin-top: 100px;
+    margin-left: 5px;
+}
+
+#pool-interactive-panel .output-group {
+    width: 160px;
+}
+
+#pool-interactive-panel .output-group .interactive-how-to {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#pool-interactive-panel .output-group .interactive-how-to img {
+    width: 32px;
+    padding-right: 10px;
+}
 /*************** page buttons ****************/
 .page-buttons {
     z-index: 100;
