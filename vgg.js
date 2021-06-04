@@ -331,7 +331,7 @@ d3.select("#pool-filter-candidate")
         console.log(poolingMode);
 
         let selectedBorer = d3.select("#pool-filter-candidate").select("svg");
-        selectedBorer.style("top", this.offsetTop - 10);
+        selectedBorer.style("top", this.offsetTop - 5);
         selectedBorer.style("left", this.offsetLeft - 5);
         /*
         let yOffset = 100; //default for max pooling
