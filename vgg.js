@@ -650,42 +650,42 @@ d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
 });
 
 // descriptions
-d3.text("./description/model_overview.txt").then(function (text) {
+d3.text("./description/VGG/model_overview.txt").then(function (text) {
     d3.select("#section-model-overview").select(".description").text(text);
 });
 
-d3.text("./description/input.txt").then(function (text) {
+d3.text("./description/VGG/input.txt").then(function (text) {
     d3.select("#section-input").select(".description").text(text);
 });
 
-d3.text("./description/vgg.txt").then(function (text) {
+d3.text("./description/VGG/vgg.txt").then(function (text) {
     d3.select("#section-model").select(".description").text(text);
 });
 
-d3.text("./description/model_overview.txt").then(function (text) {
+d3.text("./description/VGG/model_overview.txt").then(function (text) {
     d3.select("#section-model").select(".description").text(text);
 });
 
-d3.text("./description/overall_pipeline.txt").then(function (text) {
+d3.text("./description/VGG/overall_pipeline.txt").then(function (text) {
     d3.select("#overall-pipeline").text(text);
 });
 
-d3.text("./description/conv.txt").then(function (text) {
+d3.text("./description/VGG/conv.txt").then(function (text) {
     d3.select(".subsection.conv").select(".description").text(text);
 });
 
-d3.text("./description/conv2.txt").then(function (text) {
+d3.text("./description/VGG/conv2.txt").then(function (text) {
     d3.select("#conv-stride").text(text);
 });
 
-d3.text("./description/pooling.txt").then(function (text) {
+d3.text("./description/VGG/pooling.txt").then(function (text) {
     d3.select(".subsection.pooling").select(".description").text(text);
 });
 
-d3.text("./description/softmax.txt").then(function (text) {
+d3.text("./description/VGG/softmax.txt").then(function (text) {
     d3.select(".subsection.softmax").select(".description").text(text);
 });
 
-d3.text("./description/output.txt").then(function (text) {
+d3.text("./description/VGG/output.txt").then(function (text) {
     d3.select("#section-output").select(".description").text(text);
 });
