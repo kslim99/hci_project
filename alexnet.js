@@ -53,8 +53,8 @@ d3.select("#change2alexnet").on("click", () => {
     location.href = "./alexnet.html";
 });
 
-d3.select("#change2model3").on("click", () => {
-    location.href = "./model3.html";
+d3.select("#change2googlenet").on("click", () => {
+    location.href = "./googlenet.html";
 });
 
 d3.select("#change2model4").on("click", () => {
@@ -636,7 +636,6 @@ d3.selectAll(".section-title-container")
             ? targetPaper.classed("fold", false).attr("fold", false)
             : targetPaper.classed("fold", true).attr("fold", true);
     });
-
 
 d3.text("./papers/AlexNet/abstract.txt").then(function (text) {
     d3.select("#paper-abstract").select(".paper-description").text(text);

@@ -6,6 +6,10 @@ d3.select("#alexnet-area").on("click", () => {
     location.href = "./alexnet.html";
 });
 
+d3.select("#googlenet-area").on("click", () => {
+    location.href = "./googlenet.html";
+});
+
 d3.select("#add-paper-area")
     .select("img")
     .on("click", () => {
