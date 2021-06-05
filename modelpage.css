@@ -194,11 +194,20 @@
 }
 
 /*output*/
+.operation-arrow-group p {
+    position: relative;
+    top: 220px;
+    font-size: large;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
 .operation-arrow {
     width: 28px;
     height: auto;
     position: relative;
-    top: 50px;
+    top: 230px;
     margin-left: 3px;
 }
 
