@@ -49,8 +49,8 @@ d3.select("#chagne2vgg").on("click", () => {
     location.href = "./vgg.html";
 });
 
-d3.select("#change2model2").on("click", () => {
-    location.href = "./model2.html";
+d3.select("#change2alexnet").on("click", () => {
+    location.href = "./alexnet.html";
 });
 
 d3.select("#change2model3").on("click", () => {
