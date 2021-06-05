@@ -1,0 +1,6 @@
+GoogLeNet의 또 다른 특징은 네트워크의 마지막 단에서 Global Average Pooling을 
+수행한다는 점이다. 다른 VGG나 AlexNet같은 네트워크들은 마지막 단에 Fully Connected
+ Layer를 두었지만 GoogLeNet은 네트워크 중간에서 효과적으로 Feature를 추출했다면 
+Pooling만으로도 충분히 분류할 수 있다는 생각을 가지고 있었다. 이렇게 Fully Connected 
+Layer 대신 Average Pooling을 쓰게 되면, 상대적으로 파라미터가 적기 때문에 학습의 
+부담을 줄일 수 있으며 오버피팅 발생가능성도 낮다.
