@@ -1,6 +1,9 @@
 d3.select("#vgg-area").on("click", () => {
     location.href = "./vgg.html";
 });
+d3.select("#alexnet-area").on("click", () => {
+    location.href = "./alexnet.html";
+});
 
 d3.select("#add-paper-area")
     .select("img")

@@ -1,0 +1,1 @@
+AlexNet의 내부에서는 11 x 11, 5 x 5, 또는 3 x 3 convolution filter를 사용하는 5개의 layer를 통한 convolution과 max-pooling layer를 이용한 spatial pooling, 3개의 Fully-Connected(FC) layer를 통한 ILSVRC classification, 그리고 그 결과를 이용한 softmax operation이 일어난다.

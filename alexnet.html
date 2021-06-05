@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>LAMP</title>
+    <!--including css-->
+    <link rel="stylesheet" href="modelpage.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body>
+    <div class="page-layout">
+        <div class="page-buttons">
+            <img id="change-model" src="./image_archive/exchange.svg">
+            <img id="back-button" src="./image_archive/home.svg">
+            <div id="model-list" class="fold" fold=true>
+                <p id="model-list-title">Model List</p>
+                <p id="chagne2vgg">- VGG</p>
+                <p id="change2alexnet">- AlexNet</p>
+                <p id="change2model3">- model3</p>
+                <p id="change2model4">- model4</p>
+            </div>
+        </div>
+        <div>
+            <p class="model-name">AlexNet</p>
+        </div>
+        <div id="section-model-overview">
+            <div class="section-title-container">
+                <a class="section-title" id="model-overview">model-overview</a>
+                <img id="model-overview-paper" width="32" height="32" src="./image_archive/document.svg">
+            </div>
+            <div id="paper-abstract" class="paper-group fold" fold=true>
+                <p class="paper-title">ABSTRACT</p>
+                <p class="paper-description">
+                </p>
+            </div>
+            <p class="description"></p>
+        </div>
+        <div id="section-input">
+            <div class="section-title-container">
+                <a class="section-title" id="input">Input</a>
+                <img id="input-paper" width="32" height="32" src="./image_archive/document.svg">
+            </div>
+            <div id="paper-arc-input" class="paper-group fold" fold=true>
+                <p class="paper-title">Input Processing</p>
+                <p class="paper-description">
+                </p>
+            </div>
+            <p class="description" />
+        </div>
+        <div id="section-model">
+            <div class="section-title-container">
+                <a class="section-title" id="model">Model</a>
+                <img id="model-paper" width="32" height="32" src="./image_archive/document.svg">
+            </div>
+            <p class="description" />
+            <p class="reference">Reference: <a href="https://www.image-net.org/challenges/LSVRC/2012/index.php"></a>
+                                            <a>ImageNet Large Scale Visual Recognition Challenge. IJCV, 2015</a>
+            </p>
+            <div id="paper-arc-model" class="paper-group fold" fold=true>
+                <p class="paper-title">Model architecture</p>
+                <p class="paper-description">
+                </p>
+            </div>
+            <div id="model-structure">
+                <img id="model-struct" src="./image_archive/model/alexnet.png" />
+                <a href="#model-conv">
+                    <img id="plus-conv" src="./image_archive/model/plus_conv.svg" />
+                </a>
+                <a href="#model-pool">
+                    <img id="plus-pool" src="./image_archive/model/plus_pool.svg" />
+                </a>
+                <a href="#model-softmax">
+                    <img id="plus-fc" src="./image_archive/model/plus_FC.svg" />
+                </a>
+            </div>
+            <p id="overall-pipeline" class="description" />
+            <div class="subsection conv">
+                <a class="section-subtitle" id="model-conv">Conv</a>
+                <p class="description">
+                </p>
+                <div id="conv-interactive-panel">
+                    <div class="input-group">
+                        <p class="choose-text">Choose an input image</p>
+                        <div id="conv-input-candidate">
+                            <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
+                            <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
+                            <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
+                        </div>
+                        <div>
+                            <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5
+                                canvas
+                                tag.</canvas>
+                            <div class="input-tooltip">
+                                <img src="./image_archive/grid.svg" />
+                            </div>
+                        </div>
+                        <p class="chosen-text">input</p>
+                    </div>
+                    <div class="filter-group">
+                        <p class="choose-text">Choose a filter</p>
+                        <div id="conv-filter-candidate">
+                            <img filterID="edge" src="./image_archive/filter/edge.png" alt="edge" />
+                            <img filterID="vertical" src="./image_archive/filter/vertical.png" alt="vertical" />
+                            <img filterID="horizontal" src="./image_archive/filter/horizontal.png" alt="horizontal" />
+                        </div>
+                        <div id="conv-filter-name">
+                            <p>Edge</p>
+                            <p>Vertical Edge</p>
+                            <p>Horizontal Edge</p>
+                        </div>
+                        <div id="input-filter-conv">
+                            <svg class="grid" width="122px" height="122px">
+                                <g class="row1">
+                                </g>
+                                <g class="row2">
+                                </g>
+                                <g class="row3">
+                                </g>
+                            </svg>
+                            <div class="chosen-filter">
+                                <canvas id="conv-filter" width="100" height="100">Your browser does not support the
+                                    HTML5
+                                    canvas
+                                    tag.</canvas>
+                                <p class="chosen-text">filter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="conv-arrow" src='./image_archive/right-arrow.svg'>
+                    <div class="output-group">
+                        <p class="choose-text">Output</p>
+                        <div id="conv-output">
+                            <img id="conv-output-img" display="none"></img>
+                            <svg width="5" height="5" class="output-tooltip">
+                                <rect x="0" y="0" width="5" height="5"></rect>
+                            </svg>
+                        </div>
+                        <div class="interactive-how-to">
+                            <img src="./image_archive/question.svg" />
+                        </div>
+                    </div>
+                </div>
+                <p class="description" id="conv-stride"></p>
+                <div id="stride-interactive-panel">
+                    <p> Interactive panel will be added soon.</p>
+                </div>
+            </div>
+            <div class="subsection pooling">
+                <a class="section-subtitle" id="model-pool">Pooling</a>
+                <p class="description">
+                </p>
+                <div id="pool-interactive-panel">
+                    <div class="input-group">
+                        <p class="choose-text">Choose an input image</p>
+                        <div id="pool-input-candidate">
+                            <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
+                            <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
+                            <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
+                        </div>
+                        <div>
+                            <canvas id="pool-input" width="250" height="250">Your browser does not support the HTML5
+                                canvas
+                                tag.</canvas>
+                            <div class="input-tooltip">
+                                <img src="./image_archive/pooling/2_2_grid.svg" />
+                            </div>
+                        </div>
+                        <p class="chosen-text">input</p>
+                    </div>
+                    <div class="filter-group">
+                        <p class="choose-text">Choose a pooling mode</p>
+                        <div id="pool-filter-candidate">
+                            <img filterID="max" src="./image_archive/pooling/max_pool.jpg" alt="max" />
+                            <img filterID="avg" src="./image_archive/pooling/avg_pool.jpg" alt="avg" />
+                            <svg width="160" height="140" class="fold" fold=true>
+                                <rect width="150" height="130"></rect>
+                            </svg>
+                        </div>
+                        <div id="pool-filter-name">
+                            <p>Max Pooling</p>
+                            <p>Average Pooling</p>
+                        </div>
+                        <div id="pooling-process">
+                            <svg class="grid" width="80px" height="80px">
+                                <g class="row1">
+                                </g>
+                                <g class="row2">
+                                </g>
+                            </svg>
+                            <div id="pooling-arrow">
+                                <p>pooling</p>
+                                <img src="./image_archive/pooling/straight-right-arrow.svg" />
+                            </div>
+                            <div id="pooled-pixel">
+                                <svg width="30" height="30">
+                                    <rect width="30" height="30"></rect>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="conv-arrow" src='./image_archive/right-arrow.svg'>
+                    <div class="output-group">
+                        <p class="choose-text">Output</p>
+                        <div id="pool-output">
+                            <img id="pool-output-img" display="none"></img>
+                            <svg width="5" height="5" class="output-tooltip">
+                                <rect x="0" y="0" width="5" height="5"></rect>
+                            </svg>
+                        </div>
+                        <div class="interactive-how-to">
+                            <img src="./image_archive/question.svg" />
+                        </div>
+                    </div>
+                </div>
+                <p class="description" />
+            </div>
+            <div class="subsection softmax">
+                <a class="section-subtitle" id="model-softmax">Softmax</a>
+                <p class="description" />
+            </div>
+        </div>
+        <div id="section-output">
+            <div class="section-title-container">
+                <a class="section-title" id="output">Output</a>
+                <img id="output-paper" width="32" height="32" src="./image_archive/document.svg">
+            </div>
+            <p class="description">
+            </p>
+        </div>
+        <div id="section-code-materials">
+            <a class="section-title" id="code-materials">Code Materials</a>
+            <div id="code-mat-list">
+                <div class="code-mat" id="code-mat-1">
+                    <a href="https://colab.research.google.com/github/d2l-ai/d2l-en-colab/blob/master/chapter_convolutional-modern/alexnet.ipynb">
+                        Colab 1</a>
+                    <br />
+                    <img src="./image_archive/code_material/code_mat_1.PNG">
+                    <p class="description">
+                        AlexNet 모델을 실제로 구현한 Python 코드와 이에 대한 간단한 설명
+                    </p>
+                </div>
+                <div class="code-mat" id="code-mat-2">
+                    <a href="https://colab.research.google.com/github/pycroscopy
+                    /AICrystallographer/blob/master/
+                        Tutorials/Dogs_vs_atoms.ipynb#scrollTo=t-EXFD2i8jMd">Colab
+                        2</a>
+                    <br />
+                    <img src="./image_archive/code_material/code_mat_2.PNG">
+                    <p class="description">
+                        강아지와 atom을 분리하는 task를 end-to-end로 체험해볼 수 있다.
+                        실제 task를 접해보고 싶은 경우 추천!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="section-coverage">
+            <p class="description">
+                This article covers the paper
+                "ImageNet Classification with Deep Convolutional Neural Networks"
+                from page 1- page5 (Abstract ~ 3.The Architecture).</p>
+        </div>
+    </div>
+    <div>
+        <nav class="floating-menu">
+            <h3>Floating Menu</h3>
+            <a href="#model-overview">Model Overview</a><br />
+            <a href="#input">Input</a><br />
+            <a href="#model">Model</a><br />
+            <a href="#model-conv">- Conv</a><br />
+            <a href="#model-pool">- Pooling</a><br />
+            <a href="#model-softmax">- Softmax</a><br />
+            <a href="#output">Output</a><br />
+            <a href="#code-materials">Code Materials</a><br />
+        </nav>
+    </div>
+    <!--including js-->
+    <script src="alexnet.js"></script>
+</body>
+
+</html>
