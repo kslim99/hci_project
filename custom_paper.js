@@ -104,13 +104,52 @@ document.getElementById("next").addEventListener("click", onNextPage);
 /**
  * Asynchronously downloads PDF.
  */
-pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
-    pdfDoc = pdfDoc_;
-    document.getElementById("page_count").textContent = pdfDoc.numPages;
 
-    // Initial/first page rendering
-    renderPage(pageNum);
+pdfjsLib
+    .getDocument(url)
+    .promise.then(function (pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        document.getElementById("page_count").textContent = pdfDoc.numPages;
+
+        // Initial/first page rendering
+        renderPage(pageNum);
+    })
+    .catch((err) =>
+        alert(
+            "Sorry! We don't have direct access to the pdf. Try accessing the paper with the link provided below the banner."
+        )
+    );
+
+// -------------- page buttons --------------
+d3.select("#back-button").on("click", () => {
+    location.href = "./lamp.html";
 });
+
+d3.select("#change-model").on("click", function () {
+    let modelList = d3.select("#model-list");
+    modelList.attr("fold") == "true"
+        ? modelList.classed("fold", false).attr("fold", false)
+        : modelList.classed("fold", true).attr("fold", true);
+});
+
+d3.select("#chagne2vgg").on("click", () => {
+    location.href = "./vgg.html";
+});
+
+d3.select("#change2model2").on("click", () => {
+    location.href = "./model2.html";
+});
+
+d3.select("#change2model3").on("click", () => {
+    location.href = "./model3.html";
+});
+
+d3.select("#change2model4").on("click", () => {
+    location.href = "./model4.html";
+});
+
+// -------------- link-to-paper --------------
+d3.select("#link-to-paper").select("a").attr("href", url);
 
 // -------------- interactive panel (conv) --------------
 
@@ -148,34 +187,6 @@ poolOutputTooltip.style("display", "none");
 // canvas paddings
 const convInputCanvasPadding = 5;
 const poolInputCanvasPadding = 10;
-
-// -------------- page buttons --------------
-d3.select("#back-button").on("click", () => {
-    location.href = "./lamp.html";
-});
-
-d3.select("#change-model").on("click", function () {
-    let modelList = d3.select("#model-list");
-    modelList.attr("fold") == "true"
-        ? modelList.classed("fold", false).attr("fold", false)
-        : modelList.classed("fold", true).attr("fold", true);
-});
-
-d3.select("#chagne2vgg").on("click", () => {
-    location.href = "./vgg.html";
-});
-
-d3.select("#change2model2").on("click", () => {
-    location.href = "./model2.html";
-});
-
-d3.select("#change2model3").on("click", () => {
-    location.href = "./model3.html";
-});
-
-d3.select("#change2model4").on("click", () => {
-    location.href = "./model4.html";
-});
 
 d3.select("#conv-input-candidate")
     .selectAll("img")
