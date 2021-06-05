@@ -211,15 +211,6 @@
     margin-left: 3px;
 }
 
-/****************** interactive 2 ******************/
-#stride-interactive-panel {
-    background: gainsboro;
-}
-
-#stride-interactive-panel p {
-    padding: 10px;
-}
-
 /**************** interactive panel (pool) ****************/
 #pool-interactive-panel {
     margin: 5px 0px;
