@@ -1,0 +1,5 @@
+GoogLeNet은 Google이 LeNet에 기반해서 만든 모델이다. 이 모델로 ILSVRC-2014에서 1등을
+차지했다. 넓고 깊은 레이어들을 가지고 있고 높은 성능을 가지고 있지만 파라미터 개수를
+대폭 줄인 것이 특징적이다. AlexNet과 비교해보면, 파라미터 개수가 1/12배로 줄었다.
+Google은 어떻게 파라미터를 줄이면서도 깊은 레이어를 만들어서 좋은 성능을 낼 수 있었을까? 
+그 비밀은 Inception Module에 있다. GoogLeNet은 아래 그림처럼 Inception Module 9개가 사용되었다.
