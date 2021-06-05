@@ -81,6 +81,13 @@ d3.select("#conv-input-candidate")
         );
 
         inputID = inputIDList.indexOf(this.alt);
+
+        d3.select("#conv-state-message")
+            .select(".input-not-selected")
+            .classed("fold", true);
+        d3.select("#conv-state-message")
+            .select(".input-selected")
+            .classed("fold", false);
     });
 
 d3.select("#conv-filter-candidate")
@@ -101,6 +108,13 @@ d3.select("#conv-filter-candidate")
         );
 
         filterID = filterIDList.indexOf(this.alt);
+
+        d3.select("#conv-state-message")
+            .select(".filter-not-selected")
+            .classed("fold", true);
+        d3.select("#conv-state-message")
+            .select(".filter-selected")
+            .classed("fold", false);
     });
 
 d3.select("#conv-interactive-panel")
@@ -355,6 +369,13 @@ d3.select("#pool-input-candidate")
         );
 
         poolingInputID = inputIDList.indexOf(this.alt);
+
+        d3.select("#pooling-state-message")
+            .select(".input-not-selected")
+            .classed("fold", true);
+        d3.select("#pooling-state-message")
+            .select(".input-selected")
+            .classed("fold", false);
     });
 
 d3.select("#pool-filter-candidate")
@@ -369,6 +390,13 @@ d3.select("#pool-filter-candidate")
         if (selectedBorer.attr("fold") == "true") {
             selectedBorer.classed("fold", false).attr("fold", false);
         }
+
+        d3.select("#pooling-state-message")
+            .select(".pooling-not-selected")
+            .classed("fold", true);
+        d3.select("#pooling-state-message")
+            .select(".pooling-selected")
+            .classed("fold", false);
     });
 
 d3.select("#pool-interactive-panel")
