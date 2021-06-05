@@ -1,11 +1,18 @@
+// interactive panel selections
 let inputID = -1;
 let poolingInputID = -1;
 let filterID = -1;
 let poolingMode = -1;
+
+// interactive panel selection list
 let inputIDList = ["building", "windflower", "child"];
 let filterIDList = ["edge", "vertical", "horizontal"];
 let poolingModeList = ["max", "avg"];
 
+// pooled pixel value
+let pooled_pixel = 0.0;
+
+// tool tips
 let convInputTooltip = d3
     .select("#conv-interactive-panel")
     .select(".input-tooltip");
@@ -21,6 +28,10 @@ poolInputTooltip.style("display", "none");
 
 let poolOutputTooltip = d3.select("#pool-output").select(".output-tooltip");
 poolOutputTooltip.style("display", "none");
+
+// canvas paddings
+const convInputCanvasPadding = 5;
+const poolInputCanvasPadding = 10;
 
 // -------------- page buttons --------------
 d3.select("#back-button").on("click", () => {
@@ -63,13 +74,20 @@ d3.select("#conv-input-candidate")
         let img = this;
         ctx.drawImage(
             img,
-            10,
-            10,
-            targetCanvas.clientWidth - 20,
-            targetCanvas.clientHeight - 20
+            5,
+            5,
+            targetCanvas.clientWidth - 10,
+            targetCanvas.clientHeight - 10
         );
 
         inputID = inputIDList.indexOf(this.alt);
+
+        d3.select("#conv-state-message")
+            .select(".input-not-selected")
+            .classed("fold", true);
+        d3.select("#conv-state-message")
+            .select(".input-selected")
+            .classed("fold", false);
     });
 
 d3.select("#conv-filter-candidate")
@@ -83,17 +101,24 @@ d3.select("#conv-filter-candidate")
         let img = this;
         ctx.drawImage(
             img,
-            10,
-            10,
-            targetCanvas.clientWidth - 20,
-            targetCanvas.clientHeight - 20
+            5,
+            5,
+            targetCanvas.clientWidth - 10,
+            targetCanvas.clientHeight - 10
         );
 
         filterID = filterIDList.indexOf(this.alt);
+
+        d3.select("#conv-state-message")
+            .select(".filter-not-selected")
+            .classed("fold", true);
+        d3.select("#conv-state-message")
+            .select(".filter-selected")
+            .classed("fold", false);
     });
 
 d3.select("#conv-interactive-panel")
-    .select(".conv-arrow")
+    .select(".operation-arrow")
     .on("click", function () {
         let outputSrc;
         if (filterID == -1 || inputID == -1) {
@@ -187,6 +212,28 @@ d3.select("#input-filter-conv")
     .style("font-size", "small")
     .style("text-align", "center");
 
+//pooled vale
+d3.select("#pooled-pixel")
+    .select("g")
+    .selectAll("rect")
+    .data([pooled_pixel], (d) => d)
+    .join("rect")
+    .attr("width", 30)
+    .attr("height", 30)
+    .style("fill", (d) => `rgb(${d},${d},${d})`);
+
+d3.select("#pooled-pixel")
+    .select("g")
+    .selectAll("text")
+    .data([pooled_pixel], (d) => d)
+    .join("text")
+    .text((d) => (d / 256).toFixed(2))
+    .attr("x", 4)
+    .attr("y", 19)
+    .style("fill", (d) => (d > 128 ? "black" : "white"))
+    .style("font-size", "small")
+    .style("text-align", "center");
+
 d3.select("#conv-input")
     .on("mouseover", function () {
         convInputTooltip.style("display", null);
@@ -199,7 +246,7 @@ d3.select("#conv-input")
     .on("mousemove.e1", function (e) {
         convInputTooltip.style("left", e.pageX - 7.5 + "px");
         convInputTooltip.style("top", e.pageY - 7.5 + "px");
-        convOutputTooltip.style("left", e.pageX - 7.5 + 530 + 17 + "px");
+        convOutputTooltip.style("left", e.pageX - 7.5 + 515 + "px");
         convOutputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
     .on("mousemove.e2", function (event) {
@@ -322,6 +369,13 @@ d3.select("#pool-input-candidate")
         );
 
         poolingInputID = inputIDList.indexOf(this.alt);
+
+        d3.select("#pooling-state-message")
+            .select(".input-not-selected")
+            .classed("fold", true);
+        d3.select("#pooling-state-message")
+            .select(".input-selected")
+            .classed("fold", false);
     });
 
 d3.select("#pool-filter-candidate")
@@ -336,21 +390,30 @@ d3.select("#pool-filter-candidate")
         if (selectedBorer.attr("fold") == "true") {
             selectedBorer.classed("fold", false).attr("fold", false);
         }
+
+        d3.select("#pooling-state-message")
+            .select(".pooling-not-selected")
+            .classed("fold", true);
+        d3.select("#pooling-state-message")
+            .select(".pooling-selected")
+            .classed("fold", false);
     });
 
 d3.select("#pool-interactive-panel")
-    .select(".conv-arrow")
+    .select(".operation-arrow")
     .on("click", function () {
         let outputSrc;
         if (poolingMode == -1 || poolingInputID == -1) {
             alert("Finish your input selection & pooling mode selection!");
         } else {
-            outputSrc = `./pool_generator/pool_output/${poolingModeList[poolingMode]}/${inputIDList[inputID]}_out.jpg`;
+            outputSrc = `./pool_generator/pool_output/${poolingModeList[poolingMode]}/${inputIDList[poolingInputID]}_out.jpg`;
         }
 
         d3.select("#pool-output-img")
             .attr("src", outputSrc)
             .style("display", null);
+
+        console.log(outputSrc);
     });
 
 let pooling_pixels_row1 = [0, 0];
@@ -419,8 +482,19 @@ d3.select("#pool-input")
     .on("mousemove.e1", function (e) {
         poolInputTooltip.style("left", e.pageX - 7.5 + "px");
         poolInputTooltip.style("top", e.pageY - 7.5 + "px");
-        poolOutputTooltip.style("left", e.pageX - 7.5 + 530 + 17 + "px");
-        poolOutputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
+
+        let pooledOffsetX =
+            this.offsetLeft +
+            poolInputCanvasPadding +
+            (e.pageX - (this.offsetLeft + poolInputCanvasPadding)) / 2 +
+            580;
+        let pooledOffsetY =
+            this.offsetTop +
+            poolInputCanvasPadding +
+            (e.pageY - (this.offsetTop + poolInputCanvasPadding)) / 2 +
+            55;
+        poolOutputTooltip.style("left", pooledOffsetX + "px");
+        poolOutputTooltip.style("top", pooledOffsetY + "px");
     })
     .on("mousemove.e2", function (event) {
         let clickedX = event.offsetX;
@@ -490,6 +564,53 @@ d3.select("#pool-input")
             .style("fill", (d) => (d > 128 ? "black" : "white"))
             .style("font-size", "small")
             .style("text-align", "center");
+
+        let all_pixels = [
+            pooling_pixels_row1[0],
+            pooling_pixels_row1[1],
+            pooling_pixels_row2[0],
+            pooling_pixels_row2[1],
+        ];
+        if (poolingMode == 0) {
+            //max pooling
+            let max_pixel = 0;
+            for (let i = 0; i < all_pixels.length; i++) {
+                if (max_pixel < all_pixels[i]) {
+                    max_pixel = all_pixels[i];
+                }
+            }
+            pooled_pixel = max_pixel;
+        } else if (poolingMode == 1) {
+            //avg pooling
+            let total = 0;
+            for (let i = 0; i < all_pixels.length; i++) {
+                total += all_pixels[i];
+            }
+            pooled_pixel = total / grades.length;
+        }
+
+        d3.select("#pooled-pixel")
+            .select("svg")
+            .selectAll("rect")
+            .data([pooled_pixel], (d) => d)
+            .join("rect")
+            .attr("width", 30)
+            .attr("height", 30)
+            .transition()
+            .duration(200)
+            .style("fill", (d) => `rgb(${d},${d},${d})`);
+
+        d3.select("#pooled-pixel")
+            .select("svg")
+            .selectAll("text")
+            .data([pooled_pixel], (d) => d)
+            .join("text")
+            .transition()
+            .duration(200)
+            .text((d) => (d / 256).toFixed(2))
+            .style("fill", (d) => (d > 128 ? "black" : "white"))
+            .style("font-size", "small")
+            .style("text-align", "center");
     });
 
 //------------------- Read paper ------------------------
@@ -529,42 +650,42 @@ d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
 });
 
 // descriptions
-d3.text("./description/model_overview.txt").then(function (text) {
+d3.text("./description/VGG/model_overview.txt").then(function (text) {
     d3.select("#section-model-overview").select(".description").text(text);
 });
 
-d3.text("./description/input.txt").then(function (text) {
+d3.text("./description/VGG/input.txt").then(function (text) {
     d3.select("#section-input").select(".description").text(text);
 });
 
-d3.text("./description/vgg.txt").then(function (text) {
+d3.text("./description/VGG/vgg.txt").then(function (text) {
     d3.select("#section-model").select(".description").text(text);
 });
 
-d3.text("./description/model_overview.txt").then(function (text) {
+d3.text("./description/VGG/model_overview.txt").then(function (text) {
     d3.select("#section-model").select(".description").text(text);
 });
 
-d3.text("./description/overall_pipeline.txt").then(function (text) {
+d3.text("./description/VGG/overall_pipeline.txt").then(function (text) {
     d3.select("#overall-pipeline").text(text);
 });
 
-d3.text("./description/conv.txt").then(function (text) {
+d3.text("./description/VGG/conv.txt").then(function (text) {
     d3.select(".subsection.conv").select(".description").text(text);
 });
 
-d3.text("./description/conv2.txt").then(function (text) {
+d3.text("./description/VGG/conv2.txt").then(function (text) {
     d3.select("#conv-stride").text(text);
 });
 
-d3.text("./description/pooling.txt").then(function (text) {
+d3.text("./description/VGG/pooling.txt").then(function (text) {
     d3.select(".subsection.pooling").select(".description").text(text);
 });
 
-d3.text("./description/softmax.txt").then(function (text) {
+d3.text("./description/VGG/softmax.txt").then(function (text) {
     d3.select(".subsection.softmax").select(".description").text(text);
 });
 
-d3.text("./description/output.txt").then(function (text) {
+d3.text("./description/VGG/output.txt").then(function (text) {
     d3.select("#section-output").select(".description").text(text);
 });

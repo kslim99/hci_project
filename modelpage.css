@@ -4,11 +4,26 @@
     margin-right: 25%;
 }
 
-.model-name {
+.page-layout .model-name {
     font-size: 48px;
     text-align: center;
     font-weight: bold;
     color: lightseagreen;
+    margin-bottom: 5px;
+}
+
+.page-layout .paper-ref {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0px 0px;
+}
+
+.page-layout .paper-authors {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0px 0px 25px 0px;
 }
 
 .section-title {
@@ -58,8 +73,7 @@
 
 /********* interactive panel (conv) **************/
 #conv-interactive-panel {
-    margin: 5px 15px;
-    padding-left: 5px;
+    margin: 5px 0px;
     padding-bottom: 10px;
     background-color: lightgray;
     display: flex;
@@ -68,7 +82,7 @@
 
 #conv-interactive-panel .input-group {
     width: 270px;
-    padding: 5px; /*top-right-bottom-left*/
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #conv-interactive-panel .choose-text {
@@ -122,7 +136,7 @@
 /*filter*/
 #conv-interactive-panel .filter-group {
     width: 240px;
-    padding: 5px; /*top-right-bottom-left*/
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #conv-filter-candidate {
@@ -150,7 +164,7 @@
 }
 
 #conv-input {
-    margin: 5px;
+    margin: 10px 0px 5px 10px;
     border: 3px solid lightseagreen;
     border-radius: 10px;
 }
@@ -195,29 +209,29 @@
 }
 
 /*output*/
-.conv-arrow {
-    width: 32px;
+.operation-arrow-group p {
+    position: relative;
+    top: 220px;
+    font-size: large;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.operation-arrow {
+    width: 28px;
     height: auto;
     position: relative;
-    top: 50px;
-}
-
-/****************** interactive 2 ******************/
-#stride-interactive-panel {
-    background: gainsboro;
-}
-
-#stride-interactive-panel p {
-    padding: 10px;
+    top: 230px;
+    margin-left: 3px;
 }
 
 /**************** interactive panel (pool) ****************/
 #pool-interactive-panel {
-    margin: 5px 15px;
-    padding-left: 5px;
+    margin: 5px 0px;
     padding-bottom: 10px;
     background-color: white;
-    border-color: lightseagreen;
+    border: 3px solid lightseagreen;
     border-radius: 10px;
     display: flex;
     justify-content: left;
@@ -278,12 +292,12 @@
 
 /*filter*/
 #pool-interactive-panel .filter-group {
-    width: 330px;
-    padding: 5px; /*top-right-bottom-left*/
+    width: 290px;
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #pool-filter-candidate {
-    padding: 0px 10px; /*top-left*/
+    padding: 0px 5px; /*top-left*/
     display: flex;
     justify-content: space-between;
 }
@@ -348,10 +362,32 @@
     justify-content: space-around;
 }
 
+/* pooling state message*/
+.input-not-selected,
+.pooling-not-selected,
+.filter-not-selected {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 80px;
+    font-size: medium;
+    color: red;
+}
+
+.input-selected,
+.pooling-selected,
+.filter-selected {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 80px;
+    font-size: medium;
+    color: green;
+}
+
+/* output */
 #pool-output-img {
-    width: 140px;
-    height: 140px;
-    margin-top: 100px;
+    width: 120px;
+    height: 120px;
+    margin-top: 145px;
     margin-left: 5px;
 }
 
@@ -368,6 +404,7 @@
     width: 32px;
     padding-right: 10px;
 }
+
 /*************** page buttons ****************/
 .page-buttons {
     z-index: 100;
