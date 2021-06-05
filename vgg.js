@@ -5,6 +5,7 @@ let poolingMode = -1;
 let inputIDList = ["building", "windflower", "child"];
 let filterIDList = ["edge", "vertical", "horizontal"];
 let poolingModeList = ["max", "avg"];
+let pooled_pixel = 0.0;
 
 let convInputTooltip = d3
     .select("#conv-interactive-panel")
@@ -63,10 +64,10 @@ d3.select("#conv-input-candidate")
         let img = this;
         ctx.drawImage(
             img,
-            10,
-            10,
-            targetCanvas.clientWidth - 20,
-            targetCanvas.clientHeight - 20
+            5,
+            5,
+            targetCanvas.clientWidth - 10,
+            targetCanvas.clientHeight - 10
         );
 
         inputID = inputIDList.indexOf(this.alt);
@@ -83,10 +84,10 @@ d3.select("#conv-filter-candidate")
         let img = this;
         ctx.drawImage(
             img,
-            10,
-            10,
-            targetCanvas.clientWidth - 20,
-            targetCanvas.clientHeight - 20
+            5,
+            5,
+            targetCanvas.clientWidth - 10,
+            targetCanvas.clientHeight - 10
         );
 
         filterID = filterIDList.indexOf(this.alt);
@@ -187,6 +188,25 @@ d3.select("#input-filter-conv")
     .style("font-size", "small")
     .style("text-align", "center");
 
+//pooled vale
+d3.select("#pooled-pixel")
+    .select("svg")
+    .selectAll("rect")
+    .data([pooled_pixel], (d) => d)
+    .join("rect")
+    .attr("width", 30)
+    .attr("height", 30)
+    .style("fill", (d) => `rgb(${d},${d},${d})`);
+
+d3.select("#pooled-pixel")
+    .selectAll("text")
+    .data([pooled_pixel], (d) => d)
+    .join("text")
+    .text((d) => (d / 256).toFixed(2))
+    .style("fill", (d) => (d > 128 ? "black" : "white"))
+    .style("font-size", "small")
+    .style("text-align", "center");
+
 d3.select("#conv-input")
     .on("mouseover", function () {
         convInputTooltip.style("display", null);
@@ -199,7 +219,7 @@ d3.select("#conv-input")
     .on("mousemove.e1", function (e) {
         convInputTooltip.style("left", e.pageX - 7.5 + "px");
         convInputTooltip.style("top", e.pageY - 7.5 + "px");
-        convOutputTooltip.style("left", e.pageX - 7.5 + 530 + 17 + "px");
+        convOutputTooltip.style("left", e.pageX - 7.5 + 515 + "px");
         convOutputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
     .on("mousemove.e2", function (event) {
@@ -484,6 +504,48 @@ d3.select("#pool-input")
             .join("text")
             .attr("x", (d, i) => 40 * i + 11)
             .attr("y", 62)
+            .transition()
+            .duration(200)
+            .text((d) => (d / 256).toFixed(2))
+            .style("fill", (d) => (d > 128 ? "black" : "white"))
+            .style("font-size", "small")
+            .style("text-align", "center");
+
+        ///
+        all_pixels = pooling_pixels_row1.concat(pooling_pixels_row2);
+        if (poolingMode == 0) {
+            //max pooling
+            let max_pixel = 0;
+            for (let i = 0; i < all_pixels.length; i++) {
+                if (max_pixel < all_pixels[i]) {
+                    max_pixel = all_pixels[i];
+                }
+            }
+            pooled_pixel = max_pixel;
+        } else if (poolingMode == 1) {
+            //avg pooling
+            let total = 0;
+            for (let i = 0; i < all_pixels.length; i++) {
+                total += all_pixels[i];
+            }
+            pooled_pixel = total / grades.length;
+        }
+
+        d3.select("#pooled-pixel")
+            .select("svg")
+            .selectAll("rect")
+            .data([pooled_pixel], (d) => d)
+            .join("rect")
+            .attr("width", 30)
+            .attr("height", 30)
+            .transition()
+            .duration(200)
+            .style("fill", (d) => `rgb(${d},${d},${d})`);
+
+        d3.select("#pooled-pixel")
+            .selectAll("text")
+            .data([pooled_pixel], (d) => d)
+            .join("text")
             .transition()
             .duration(200)
             .text((d) => (d / 256).toFixed(2))

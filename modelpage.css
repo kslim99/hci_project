@@ -58,8 +58,7 @@
 
 /********* interactive panel (conv) **************/
 #conv-interactive-panel {
-    margin: 5px 15px;
-    padding-left: 5px;
+    margin: 5px 0px;
     padding-bottom: 10px;
     background-color: lightgray;
     display: flex;
@@ -68,7 +67,7 @@
 
 #conv-interactive-panel .input-group {
     width: 270px;
-    padding: 5px; /*top-right-bottom-left*/
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #conv-interactive-panel .choose-text {
@@ -122,7 +121,7 @@
 /*filter*/
 #conv-interactive-panel .filter-group {
     width: 240px;
-    padding: 5px; /*top-right-bottom-left*/
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #conv-filter-candidate {
@@ -150,7 +149,7 @@
 }
 
 #conv-input {
-    margin: 5px;
+    margin: 10px 0px 5px 10px;
     border: 3px solid lightseagreen;
     border-radius: 10px;
 }
@@ -196,10 +195,11 @@
 
 /*output*/
 .conv-arrow {
-    width: 32px;
+    width: 28px;
     height: auto;
     position: relative;
     top: 50px;
+    margin-left: 3px;
 }
 
 /****************** interactive 2 ******************/
@@ -348,6 +348,16 @@
     justify-content: space-around;
 }
 
+/* pooling state message*/
+#pooling-state-message p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 80px;
+    font-size: medium;
+    color: red;
+}
+
+/* output */
 #pool-output-img {
     width: 140px;
     height: 140px;
@@ -368,6 +378,7 @@
     width: 32px;
     padding-right: 10px;
 }
+
 /*************** page buttons ****************/
 .page-buttons {
     z-index: 100;
