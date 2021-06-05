@@ -1,0 +1,79 @@
+The main idea of the Inception architecture is to consider
+how an optimal local sparse structure of a convolutional vision network 
+can be approximated and covered by readily
+available dense components. Note that assuming translation
+invariance means that our network will be built from convolutional 
+building blocks. All we need is to find the optimal
+local construction and to repeat it spatially. Arora et al. [2]
+suggests a layer-by layer construction where one should analyze the correlation 
+statistics of the last layer and cluster
+them into groups of units with high correlation. These clusters form the units 
+of the next layer and are connected to
+the units in the previous layer. We assume that each unit
+from an earlier layer corresponds to some region of the input image and these 
+units are grouped into filter banks. In
+the lower layers (the ones close to the input) correlated units
+would concentrate in local regions. Thus, we would end up
+with a lot of clusters concentrated in a single region and
+they can be covered by a layer of 1×1 convolutions in the
+next layer, as suggested in [12]. However, one can also
+expect that there will be a smaller number of more spatially
+spread out clusters that can be covered by convolutions over
+larger patches, and there will be a decreasing number of
+patches over larger and larger regions. In order to avoid
+patch-alignment issues, current incarnations of the Inception architecture 
+are restricted to filter sizes 1×1, 3×3 and
+5×5; this decision was based more on convenience rather
+than necessity. It also means that the suggested architecture
+is a combination of all those layers with their output filter
+banks concatenated into a single output vector forming the
+input of the next stage. Additionally, since pooling operations have been 
+essential for the success of current convolutional networks, it suggests that 
+adding an alternative parallel pooling path in each such stage should have additional
+beneficial effect, too (see Figure 2(a)).
+As these “Inception modules” are stacked on top of each
+other, their output correlation statistics are bound to vary:
+as features of higher abstraction are captured by higher layers, 
+their spatial concentration is expected to decrease. This
+suggests that the ratio of 3×3 and 5×5 convolutions should
+increase as we move to higher layers.
+One big problem with the above modules, at least in this
+na¨ıve form, is that even a modest number of 5×5 convolutions can be prohibitively 
+expensive on top of a convolutional layer with a large number of filters. 
+This problem becomes even more pronounced once pooling units are added
+to the mix: the number of output filters equals to the number of filters in the previous stage. The merging of output
+of the pooling layer with outputs of the convolutional layers would lead to an inevitable increase in the number of
+outputs from stage to stage. While this architecture might
+cover the optimal sparse structure, it would do it very inefficiently, leading to a computational blow up within a few
+stages.
+This leads to the second idea of the Inception architecture: judiciously reducing dimension wherever the computational requirements would increase too much otherwise.
+This is based on the success of embeddings: even low dimensional embeddings might contain a lot of information
+about a relatively large image patch. However, embeddings represent information in a dense, compressed form
+and compressed information is harder to process. The representation should be kept sparse at most places (as required
+by the conditions of [2]) and compress the signals only
+whenever they have to be aggregated en masse. That is,
+1×1 convolutions are used to compute reductions before
+the expensive 3×3 and 5×5 convolutions. Besides being
+used as reductions, they also include the use of rectified linear activation making them dual-purpose. The final result is
+depicted in Figure 2(b).
+In general, an Inception network is a network consisting of modules of the above type stacked upon each other,
+with occasional max-pooling layers with stride 2 to halve
+the resolution of the grid. For technical reasons (memory efficiency during training), it seemed beneficial to start using Inception modules only at higher layers while keeping
+the lower layers in traditional convolutional fashion. This is
+not strictly necessary, simply reflecting some infrastructural
+inefficiencies in our current implementation.
+A useful aspect of this architecture is that it allows for
+increasing the number of units at each stage significantly
+without an uncontrolled blow-up in computational complexity at later stages. This is achieved by the ubiquitous
+use of dimensionality reduction prior to expensive convolutions with larger patch sizes. Furthermore, the design follows the practical intuition that visual information should
+be processed at various scales and then aggregated so that
+the next stage can abstract features from the different scales
+simultaneously.
+The improved use of computational resources allows for
+increasing both the width of each stage as well as the number of stages without getting into computational difficulties.
+One can utilize the Inception architecture to create slightly
+inferior, but computationally cheaper versions of it. We
+have found that all the available knobs and levers allow for
+a controlled balancing of computational resources resulting
+in networks that are 3 − 10× faster than similarly performing networks with non-Inception architecture, however this
+requires careful manual design at this point.

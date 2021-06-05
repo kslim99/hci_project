@@ -1,0 +1,56 @@
+By the“GoogLeNet” name we refer to the particular incarnation of the Inception architecture used in our submission for the ILSVRC 2014 competition. We also used one
+deeper and wider Inception network with slightly superior
+quality, but adding it to the ensemble seemed to improve the
+results only marginally. We omit the details of that network,
+as empirical evidence suggests that the influence of the exact architectural parameters is relatively minor. Table 1 illustrates the most common instance of Inception used in the
+competition. This network (trained with different imagepatch sampling methods) was used for 6 out of the 7 models
+in our ensemble.
+All the convolutions, including those inside the Inception modules, use rectified linear activation. The size of the
+receptive field in our network is 224×224 in the RGB color
+space with zero mean. “#3×3 reduce” and “#5×5 reduce”
+stands for the number of 1×1 filters in the reduction layer
+used before the 3×3 and 5×5 convolutions. One can see
+the number of 1×1 filters in the projection layer after the
+built-in max-pooling in the pool proj column. All these reduction/projection layers use rectified linear activation as
+well.
+The network was designed with computational efficiency
+and practicality in mind, so that inference can be run on individual devices including even those with limited computational resources, especially with low-memory footprint.
+The network is 22 layers deep when counting only layers
+with parameters (or 27 layers if we also count pooling). The
+overall number of layers (independent building blocks) used
+for the construction of the network is about 100. The exact
+number depends on how layers are counted by the machine
+learning infrastructure. The use of average pooling before
+the classifier is based on [12], although our implementation
+has an additional linear layer. The linear layer enables us to
+easily adapt our networks to other label sets, however it is
+used mostly for convenience and we do not expect it to have
+a major effect. We found that a move from fully connected
+layers to average pooling improved the top-1 accuracy by
+about 0.6%, however the use of dropout remained essential
+even after removing the fully connected layers.
+Given relatively large depth of the network, the ability
+to propagate gradients back through all the layers in an
+effective manner was a concern. The strong performance
+of shallower networks on this task suggests that the features produced by the layers in the middle of the network
+should be very discriminative. By adding auxiliary classifiers connected to these intermediate layers, discrimination
+in the lower stages in the classifier was expected. This was
+thought to combat the vanishing gradient problem while providing regularization. These classifiers take the form
+of smaller convolutional networks put on top of the output of the Inception (4a) and (4d) modules. During training, their loss gets added to the total loss of the network
+with a discount weight (the losses of the auxiliary classifiers were weighted by 0.3). At inference time, these auxiliary networks are discarded. Later control experiments have
+shown that the effect of the auxiliary networks is relatively
+minor (around 0.5%) and that it required only one of them
+to achieve the same effect.
+The exact structure of the extra network on the side, including the auxiliary classifier, is as follows:
+
+• An average pooling layer with 5×5 filter size and
+stride 3, resulting in an 4×4×512 output for the (4a),
+and 4×4×528 for the (4d) stage.
+• A 1×1 convolution with 128 filters for dimension reduction and rectified linear activation.
+• A fully connected layer with 1024 units and rectified
+linear activation.
+• A dropout layer with 70% ratio of dropped outputs.
+• A linear layer with softmax loss as the classifier (predicting the same 1000 classes as the main classifier, but
+removed at inference time).
+A schematic view of the resulting network is depicted in
+Figure 3.

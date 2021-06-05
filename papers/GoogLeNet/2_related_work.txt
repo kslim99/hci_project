@@ -1,0 +1,45 @@
+Starting with LeNet-5 [10], convolutional neural networks (CNN) have typically had a standard structure –
+stacked convolutional layers (optionally followed by contrast normalization and max-pooling) are followed by one
+or more fully-connected layers. Variants of this basic design
+are prevalent in the image classification literature and have
+yielded the best results to-date on MNIST, CIFAR and most
+notably on the ImageNet classification challenge [9, 21].
+For larger datasets such as Imagenet, the recent trend has
+been to increase the number of layers [12] and layer
+size [21, 14], while using dropout [7] to address the problem
+of overfitting.
+Despite concerns that max-pooling layers result in loss
+of accurate spatial information, the same convolutional network 
+architecture as [9] has also been successfully employed for localization [9, 14], 
+object detection [6, 14, 18, 5] and human pose estimation [19].
+Inspired by a neuroscience model of the primate visual
+cortex, Serre et al. [15] used a series of fixed Gabor filters
+of different sizes to handle multiple scales. We use a similar
+strategy here. However, contrary to the fixed 2-layer deep
+model of [15], all filters in the Inception architecture are
+learned. Furthermore, Inception layers are repeated many
+times, leading to a 22-layer deep model in the case of the
+GoogLeNet model.
+Network-in-Network is an approach proposed by Lin et
+al. [12] in order to increase the representational power of
+neural networks. In their model, additional 1 × 1 convolutional layers are added 
+to the network, increasing its depth.
+We use this approach heavily in our architecture. However,
+in our setting, 1 × 1 convolutions have dual purpose: most
+critically, they are used mainly as dimension reduction modules to remove 
+computational bottlenecks, that would otherwise limit the size of our networks. 
+This allows for not just increasing the depth, but also the width of our networks
+without a significant performance penalty.
+Finally, the current state of the art for object detection is
+the Regions with Convolutional Neural Networks (R-CNN)
+method by Girshick et al. [6]. R-CNN decomposes the overall detection problem 
+into two subproblems: utilizing lowlevel cues such as color and texture in order 
+to generate object location proposals in a category-agnostic fashion and
+using CNN classifiers to identify object categories at those
+locations. Such a two stage approach leverages the accuracy of bounding box 
+segmentation with low-level cues, as well as the highly powerful classification 
+power of state-ofthe-art CNNs. We adopted a similar pipeline in our detection 
+submissions, but have explored enhancements in both
+stages, such as multi-box [5] prediction for higher object
+bounding box recall, and ensemble approaches for better
+categorization of bounding box proposals.
