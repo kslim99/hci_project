@@ -23,6 +23,10 @@
         </div>
         <div>
             <p class="model-name">AlexNet</p>
+            <p class="paper-ref">Paper: <a href="https://papers.nips.cc/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">ImageNet Classification with Deep Convolutional
+                Neural Networks</a></p>
+            <p class="paper-authors">Authors: Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton
+            </p>
         </div>
         <div id="section-model-overview">
             <div class="section-title-container">
@@ -55,9 +59,9 @@
             </div>
             <p class="description" />
             <p class="reference">Reference: <a href="https://www.image-net.org/challenges/LSVRC/2012/index.php">
-                                            LSVRC 2012 challenge</a>
+                                            LSVRC 2012 challenge</a>,
+                                            ImageNet Large Scale Visual Recognition Challenge. IJCV, 2015
             </p>
-            <p class="reference"><a>ImageNet Large Scale Visual Recognition Challenge. IJCV, 2015</a></p>
             <div id="paper-arc-model" class="paper-group fold" fold=true>
                 <p class="paper-title">Model architecture</p>
                 <p class="paper-description">
@@ -82,24 +86,24 @@
                 </p>
                 <div id="conv-interactive-panel">
                     <div class="input-group">
-                        <p class="choose-text">Choose an input image</p>
+                        <p class="choose-text">1. Choose an input image</p>
                         <div id="conv-input-candidate">
                             <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
                             <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
                             <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
                         </div>
                         <div>
-                            <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5
+                            <canvas id="conv-input" width="240" height="240">Your browser does not support the HTML5
                                 canvas
                                 tag.</canvas>
                             <div class="input-tooltip">
                                 <img src="./image_archive/grid.svg" />
                             </div>
                         </div>
-                        <p class="chosen-text">input</p>
+                        <p class="chosen-text">4. Hover over the input and checkout the pooling proces!</p>
                     </div>
                     <div class="filter-group">
-                        <p class="choose-text">Choose a filter</p>
+                        <p class="choose-text">2. Choose a filter</p>
                         <div id="conv-filter-candidate">
                             <img filterID="edge" src="./image_archive/filter/edge.png" alt="edge" />
                             <img filterID="vertical" src="./image_archive/filter/vertical.png" alt="vertical" />
@@ -120,15 +124,24 @@
                                 </g>
                             </svg>
                             <div class="chosen-filter">
-                                <canvas id="conv-filter" width="100" height="100">Your browser does not support the
+                                <canvas id="conv-filter" width="90" height="90">Your browser does not support the
                                     HTML5
                                     canvas
                                     tag.</canvas>
                                 <p class="chosen-text">filter</p>
                             </div>
                         </div>
+                        <div id="conv-state-message">
+                            <p class="input-not-selected">&#9744; Input Not selected.</p>
+                            <p class="input-selected fold">&#9745; Input selected.</p>
+                            <p class="filter-not-selected">&#9744; Filter Not selected.</p>
+                            <p class="filter-selected fold">&#9745; Filter selected.</p>
+                        </div>
                     </div>
-                    <img class="conv-arrow" src='./image_archive/right-arrow.svg'>
+                    <div class="operation-arrow-group">
+                        <p>3.</p>
+                        <img class="operation-arrow" src='./image_archive/right-arrow.svg'>
+                    </div>
                     <div class="output-group">
                         <p class="choose-text">Output</p>
                         <div id="conv-output">
@@ -142,10 +155,6 @@
                         </div>
                     </div>
                 </div>
-                <p class="description" id="conv-stride"></p>
-                <div id="stride-interactive-panel">
-                    <p> Interactive panel will be added soon.</p>
-                </div>
             </div>
             <div class="subsection pooling">
                 <a class="section-subtitle" id="model-pool">Pooling</a>
@@ -153,7 +162,7 @@
                 </p>
                 <div id="pool-interactive-panel">
                     <div class="input-group">
-                        <p class="choose-text">Choose an input image</p>
+                        <p class="choose-text">1. Choose an input image</p>
                         <div id="pool-input-candidate">
                             <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
                             <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
@@ -167,15 +176,15 @@
                                 <img src="./image_archive/pooling/2_2_grid.svg" />
                             </div>
                         </div>
-                        <p class="chosen-text">input</p>
+                        <p class="chosen-text">4. Hover over the input and checkout the pooling proces!</p>
                     </div>
                     <div class="filter-group">
-                        <p class="choose-text">Choose a pooling mode</p>
+                        <p class="choose-text">2. Choose a pooling mode</p>
                         <div id="pool-filter-candidate">
                             <img filterID="max" src="./image_archive/pooling/max_pool.jpg" alt="max" />
                             <img filterID="avg" src="./image_archive/pooling/avg_pool.jpg" alt="avg" />
                             <svg width="160" height="140" class="fold" fold=true>
-                                <rect width="150" height="130"></rect>
+                                <rect width="145" height="130"></rect>
                             </svg>
                         </div>
                         <div id="pool-filter-name">
@@ -195,12 +204,21 @@
                             </div>
                             <div id="pooled-pixel">
                                 <svg width="30" height="30">
-                                    <rect width="30" height="30"></rect>
+                                    <g></g>
                                 </svg>
                             </div>
                         </div>
+                        <div id="pooling-state-message">
+                            <p class="input-not-selected">&#9744; Input Not selected.</p>
+                            <p class="input-selected fold">&#9745; Input selected.</p>
+                            <p class="pooling-not-selected">&#9744; Pooling Layer Not selected.</p>
+                            <p class="pooling-selected fold">&#9745; Pooling Layer selected.</p>
+                        </div>
                     </div>
-                    <img class="conv-arrow" src='./image_archive/right-arrow.svg'>
+                    <div class="operation-arrow-group">
+                        <p>3.</p>
+                        <img class="operation-arrow" src='./image_archive/right-arrow.svg'>
+                    </div>
                     <div class="output-group">
                         <p class="choose-text">Output</p>
                         <div id="pool-output">
