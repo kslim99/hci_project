@@ -200,7 +200,7 @@ d3.select("#input-filter-conv")
 
 //pooled vale
 d3.select("#pooled-pixel")
-    .select("svg")
+    .select("g")
     .selectAll("rect")
     .data([pooled_pixel], (d) => d)
     .join("rect")
@@ -209,10 +209,13 @@ d3.select("#pooled-pixel")
     .style("fill", (d) => `rgb(${d},${d},${d})`);
 
 d3.select("#pooled-pixel")
+    .select("g")
     .selectAll("text")
     .data([pooled_pixel], (d) => d)
     .join("text")
     .text((d) => (d / 256).toFixed(2))
+    .attr("x", 4)
+    .attr("y", 19)
     .style("fill", (d) => (d > 128 ? "black" : "white"))
     .style("font-size", "small")
     .style("text-align", "center");
@@ -570,6 +573,7 @@ d3.select("#pool-input")
             .style("fill", (d) => `rgb(${d},${d},${d})`);
 
         d3.select("#pooled-pixel")
+            .select("svg")
             .selectAll("text")
             .data([pooled_pixel], (d) => d)
             .join("text")
