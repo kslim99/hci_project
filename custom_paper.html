@@ -40,24 +40,24 @@
                     </div>
                     <div id="conv-interactive-panel">
                         <div class="input-group">
-                            <p class="choose-text">Choose a input image</p>
+                            <p class="choose-text">1. Choose an input image</p>
                             <div id="conv-input-candidate">
                                 <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
                                 <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
                                 <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
                             </div>
                             <div>
-                                <canvas id="conv-input" width="250" height="250">Your browser does not support the HTML5
+                                <canvas id="conv-input" width="240" height="240">Your browser does not support the HTML5
                                     canvas
                                     tag.</canvas>
-                                <div id="input-tooltip">
+                                <div class="input-tooltip">
                                     <img src="./image_archive/grid.svg" />
                                 </div>
                             </div>
-                            <p class="chosen-text">input</p>
+                            <p class="chosen-text">4. Hover over the input and checkout the pooling proces!</p>
                         </div>
                         <div class="filter-group">
-                            <p class="choose-text">Choose a filter</p>
+                            <p class="choose-text">2. Choose a filter</p>
                             <div id="conv-filter-candidate">
                                 <img filterID="edge" src="./image_archive/filter/edge.png" alt="edge" />
                                 <img filterID="vertical" src="./image_archive/filter/vertical.png" alt="vertical" />
@@ -70,31 +70,43 @@
                                 <p>Horizontal Edge</p>
                             </div>
                             <div id="input-filter-conv">
-                                <svg id="grid" width="122px" height="122px">
-                                    <g id="row1">
+                                <svg class="grid" width="122px" height="122px">
+                                    <g class="row1">
                                     </g>
-                                    <g id="row2">
+                                    <g class="row2">
                                     </g>
-                                    <g id="row3">
+                                    <g class="row3">
                                     </g>
                                 </svg>
-                                <div id="chosen-filter">
-                                    <canvas id="conv-filter" width="100" height="100">Your browser does not support the
+                                <div class="chosen-filter">
+                                    <canvas id="conv-filter" width="90" height="90">Your browser does not support the
                                         HTML5
                                         canvas
                                         tag.</canvas>
                                     <p class="chosen-text">filter</p>
                                 </div>
                             </div>
+                            <div id="conv-state-message">
+                                <p class="input-not-selected">&#9744; Input Not selected.</p>
+                                <p class="input-selected fold">&#9745; Input selected.</p>
+                                <p class="filter-not-selected">&#9744; Filter Not selected.</p>
+                                <p class="filter-selected fold">&#9745; Filter selected.</p>
+                            </div>
                         </div>
-                        <img id="conv-arrow" src='./image_archive/right-arrow.svg'>
-                        <div id="output-group">
+                        <div class="operation-arrow-group">
+                            <p>3.</p>
+                            <img class="operation-arrow" src='./image_archive/right-arrow.svg'>
+                        </div>
+                        <div class="output-group">
                             <p class="choose-text">Output</p>
                             <div id="conv-output">
                                 <img id="conv-output-img" display="none"></img>
-                                <svg width="5" height="5" id="output-tooltip">
+                                <svg width="5" height="5" class="output-tooltip">
                                     <rect x="0" y="0" width="5" height="5"></rect>
                                 </svg>
+                            </div>
+                            <div class="interactive-how-to">
+                                <img src="./image_archive/question.svg" />
                             </div>
                         </div>
                     </div>
@@ -109,7 +121,77 @@
                             <p>See Page</p>
                         </div>
                     </div>
-                    <div class="interactive-panel pool">
+                    <div id="pool-interactive-panel">
+                        <div class="input-group">
+                            <p class="choose-text">1. Choose an input image</p>
+                            <div id="pool-input-candidate">
+                                <img alt="building" src="./image_archive/real_input/building_gray.jpg" />
+                                <img alt="windflower" src="./image_archive/real_input/windflower_gray.jpg" />
+                                <img alt="child" src="./image_archive/real_input/child_gray.jpg" />
+                            </div>
+                            <div>
+                                <canvas id="pool-input" width="250" height="250">Your browser does not support the HTML5
+                                    canvas
+                                    tag.</canvas>
+                                <div class="input-tooltip">
+                                    <img src="./image_archive/pooling/2_2_grid.svg" />
+                                </div>
+                            </div>
+                            <p class="chosen-text">4. Hover over the input and checkout the pooling proces!</p>
+                        </div>
+                        <div class="filter-group">
+                            <p class="choose-text">2. Choose a pooling mode</p>
+                            <div id="pool-filter-candidate">
+                                <img filterID="max" src="./image_archive/pooling/max_pool.jpg" alt="max" />
+                                <img filterID="avg" src="./image_archive/pooling/avg_pool.jpg" alt="avg" />
+                                <svg width="160" height="140" class="fold" fold=true>
+                                    <rect width="145" height="130"></rect>
+                                </svg>
+                            </div>
+                            <div id="pool-filter-name">
+                                <p>Max Pooling</p>
+                                <p>Average Pooling</p>
+                            </div>
+                            <div id="pooling-process">
+                                <svg class="grid" width="80px" height="80px">
+                                    <g class="row1">
+                                    </g>
+                                    <g class="row2">
+                                    </g>
+                                </svg>
+                                <div id="pooling-arrow">
+                                    <p>pooling</p>
+                                    <img src="./image_archive/pooling/straight-right-arrow.svg" />
+                                </div>
+                                <div id="pooled-pixel">
+                                    <svg width="30" height="30">
+                                        <g></g>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div id="pooling-state-message">
+                                <p class="input-not-selected">&#9744; Input Not selected.</p>
+                                <p class="input-selected fold">&#9745; Input selected.</p>
+                                <p class="pooling-not-selected">&#9744; Pooling Layer Not selected.</p>
+                                <p class="pooling-selected fold">&#9745; Pooling Layer selected.</p>
+                            </div>
+                        </div>
+                        <div class="operation-arrow-group">
+                            <p>3.</p>
+                            <img class="operation-arrow" src='./image_archive/right-arrow.svg'>
+                        </div>
+                        <div class="output-group">
+                            <p class="choose-text">Output</p>
+                            <div id="pool-output">
+                                <img id="pool-output-img" display="none"></img>
+                                <svg width="5" height="5" class="output-tooltip">
+                                    <rect x="0" y="0" width="5" height="5"></rect>
+                                </svg>
+                            </div>
+                            <div class="interactive-how-to">
+                                <img src="./image_archive/question.svg" />
+                            </div>
+                        </div>
                     </div>
                     <p class="description" />
                 </div>

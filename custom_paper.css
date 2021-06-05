@@ -1,10 +1,11 @@
 #page-layout {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #page-left {
     width: 50%;
+    margin-left: 15px;
 }
 #page-right {
     width: 40%;
@@ -16,6 +17,10 @@
 
 .page-name {
     font-size: 36px;
+}
+
+.subsection {
+    margin-top: 50px;
 }
 
 /*************** font *****************/
@@ -109,10 +114,9 @@
     right: 0px;
 }
 
-/********* interactive panel **************/
+/********* interactive panel (conv) **************/
 #conv-interactive-panel {
-    margin: 5px 15px;
-    padding-left: 5px;
+    margin: 5px 0px;
     padding-bottom: 10px;
     background-color: lightgray;
     display: flex;
@@ -121,7 +125,7 @@
 
 #conv-interactive-panel .input-group {
     width: 270px;
-    padding: 5px; /*top-right-bottom-left*/
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #conv-interactive-panel .choose-text {
@@ -142,32 +146,32 @@
 }
 
 /*hovered position input*/
-#grid .square {
+#input-filter-conv .grid .square {
     opacity: 0.5;
     fill: rgb(100, 167, 206);
     stroke: black;
 }
 
-#input-tooltip {
+#conv-interactive-panel .input-tooltip {
     position: absolute;
     top: 0;
     left: 0;
 }
 
-#output-tooltip {
+#conv-output .output-tooltip {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 100;
 }
 
-#output-tooltip rect {
+#conv-output .output-tooltip rect {
     fill: none;
     stroke: red;
     stroke-width: 1.5px;
 }
 
-#input-tooltip img {
+#conv-interactive-panel .input-tooltip img {
     width: 15px;
     height: auto;
 }
@@ -175,7 +179,7 @@
 /*filter*/
 #conv-interactive-panel .filter-group {
     width: 240px;
-    padding: 5px; /*top-right-bottom-left*/
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #conv-filter-candidate {
@@ -203,7 +207,7 @@
 }
 
 #conv-input {
-    margin: 5px;
+    margin: 10px 0px 5px 10px;
     border: 3px solid lightseagreen;
     border-radius: 10px;
 }
@@ -226,8 +230,18 @@
     border-radius: 10px;
 }
 
-#output-group {
+#conv-interactive-panel .output-group {
     width: 250px;
+}
+
+#conv-interactive-panel .output-group .interactive-how-to {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#conv-interactive-panel .output-group .interactive-how-to img {
+    width: 32px;
+    padding-right: 10px;
 }
 
 #conv-output-img {
@@ -238,13 +252,203 @@
 }
 
 /*output*/
-#conv-arrow {
-    width: 32px;
-    height: auto;
+.operation-arrow-group p {
     position: relative;
-    top: 50px;
+    top: 220px;
+    font-size: large;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
 }
 
+.operation-arrow {
+    width: 28px;
+    height: auto;
+    position: relative;
+    top: 230px;
+    margin-left: 3px;
+}
+
+/**************** interactive panel (pool) ****************/
+#pool-interactive-panel {
+    margin: 5px 0px;
+    padding-bottom: 10px;
+    background-color: white;
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
+    display: flex;
+    justify-content: left;
+}
+
+#pool-interactive-panel .input-group {
+    width: 270px;
+    padding: 5px; /*top-right-bottom-left*/
+}
+
+#pool-interactive-panel .choose-text {
+    font-size: medium;
+    font-weight: bold;
+    text-align: center;
+}
+
+#pool-input-candidate {
+    padding: 0px 20px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#pool-input-candidate img {
+    width: 68px;
+    height: auto;
+}
+
+/*hovered position input*/
+#pooling-process .grid .square {
+    opacity: 0.5;
+    fill: rgb(100, 167, 206);
+    stroke: black;
+}
+
+#pool-interactive-panel .input-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#pool-output .output-tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+#pool-output .output-tooltip rect {
+    fill: none;
+    stroke: red;
+    stroke-width: 1.5px;
+}
+
+#pool-interactive-panel .input-tooltip img {
+    width: 11px;
+    height: auto;
+}
+
+/*filter*/
+#pool-interactive-panel .filter-group {
+    width: 290px;
+    padding: 5px 0px; /*top-right-bottom-left*/
+}
+
+#pool-filter-candidate {
+    padding: 0px 5px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#pool-filter-candidate img {
+    width: 135px;
+    height: auto;
+    border: 1px solid gray;
+}
+
+#pool-filter-candidate svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#pool-filter-candidate rect {
+    fill: none;
+    stroke: lightseagreen;
+    stroke-width: 3px;
+}
+
+#pool-filter-name {
+    padding: 0px 10px; /*top-left*/
+    display: flex;
+    justify-content: space-between;
+}
+
+#pool-filter-name p {
+    margin-top: 10px;
+    width: 135px;
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+}
+
+/* pooling process */
+#pooling-arrow img {
+    width: 50px;
+}
+
+#pooling-arrow p {
+    margin: 0px;
+    width: 50px;
+    font-size: small;
+    text-align: center;
+}
+
+#pooled-pixel svg {
+    margin-top: 20px;
+}
+
+#pool-input {
+    margin: 5px;
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
+}
+
+#pooling-process {
+    margin-top: 15%;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* pooling state message*/
+.input-not-selected,
+.pooling-not-selected,
+.filter-not-selected {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 80px;
+    font-size: medium;
+    color: red;
+}
+
+.input-selected,
+.pooling-selected,
+.filter-selected {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 80px;
+    font-size: medium;
+    color: green;
+}
+
+/* output */
+#pool-output-img {
+    width: 120px;
+    height: 120px;
+    margin-top: 145px;
+    margin-left: 5px;
+}
+
+#pool-interactive-panel .output-group {
+    width: 160px;
+}
+
+#pool-interactive-panel .output-group .interactive-how-to {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#pool-interactive-panel .output-group .interactive-how-to img {
+    width: 32px;
+    padding-right: 10px;
+}
+
+/**/
 .fold {
     display: none;
 }
