@@ -194,7 +194,7 @@
 }
 
 /*output*/
-.conv-arrow {
+.operation-arrow {
     width: 28px;
     height: auto;
     position: relative;
@@ -213,11 +213,10 @@
 
 /**************** interactive panel (pool) ****************/
 #pool-interactive-panel {
-    margin: 5px 15px;
-    padding-left: 5px;
+    margin: 5px 0px;
     padding-bottom: 10px;
     background-color: white;
-    border-color: lightseagreen;
+    border: 3px solid lightseagreen;
     border-radius: 10px;
     display: flex;
     justify-content: left;
@@ -278,12 +277,12 @@
 
 /*filter*/
 #pool-interactive-panel .filter-group {
-    width: 330px;
-    padding: 5px; /*top-right-bottom-left*/
+    width: 290px;
+    padding: 5px 0px; /*top-right-bottom-left*/
 }
 
 #pool-filter-candidate {
-    padding: 0px 10px; /*top-left*/
+    padding: 0px 5px; /*top-left*/
     display: flex;
     justify-content: space-between;
 }
@@ -359,9 +358,9 @@
 
 /* output */
 #pool-output-img {
-    width: 140px;
-    height: 140px;
-    margin-top: 100px;
+    width: 120px;
+    height: 120px;
+    margin-top: 145px;
     margin-left: 5px;
 }
 

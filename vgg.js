@@ -1,12 +1,18 @@
+// interactive panel selections
 let inputID = -1;
 let poolingInputID = -1;
 let filterID = -1;
 let poolingMode = -1;
+
+// interactive panel selection list
 let inputIDList = ["building", "windflower", "child"];
 let filterIDList = ["edge", "vertical", "horizontal"];
 let poolingModeList = ["max", "avg"];
+
+// pooled pixel value
 let pooled_pixel = 0.0;
 
+// tool tips
 let convInputTooltip = d3
     .select("#conv-interactive-panel")
     .select(".input-tooltip");
@@ -22,6 +28,10 @@ poolInputTooltip.style("display", "none");
 
 let poolOutputTooltip = d3.select("#pool-output").select(".output-tooltip");
 poolOutputTooltip.style("display", "none");
+
+// canvas paddings
+const convInputCanvasPadding = 5;
+const poolInputCanvasPadding = 10;
 
 // -------------- page buttons --------------
 d3.select("#back-button").on("click", () => {
@@ -94,7 +104,7 @@ d3.select("#conv-filter-candidate")
     });
 
 d3.select("#conv-interactive-panel")
-    .select(".conv-arrow")
+    .select(".operation-arrow")
     .on("click", function () {
         let outputSrc;
         if (filterID == -1 || inputID == -1) {
@@ -359,18 +369,20 @@ d3.select("#pool-filter-candidate")
     });
 
 d3.select("#pool-interactive-panel")
-    .select(".conv-arrow")
+    .select(".operation-arrow")
     .on("click", function () {
         let outputSrc;
         if (poolingMode == -1 || poolingInputID == -1) {
             alert("Finish your input selection & pooling mode selection!");
         } else {
-            outputSrc = `./pool_generator/pool_output/${poolingModeList[poolingMode]}/${inputIDList[inputID]}_out.jpg`;
+            outputSrc = `./pool_generator/pool_output/${poolingModeList[poolingMode]}/${inputIDList[poolingInputID]}_out.jpg`;
         }
 
         d3.select("#pool-output-img")
             .attr("src", outputSrc)
             .style("display", null);
+
+        console.log(outputSrc);
     });
 
 let pooling_pixels_row1 = [0, 0];
@@ -439,8 +451,19 @@ d3.select("#pool-input")
     .on("mousemove.e1", function (e) {
         poolInputTooltip.style("left", e.pageX - 7.5 + "px");
         poolInputTooltip.style("top", e.pageY - 7.5 + "px");
-        poolOutputTooltip.style("left", e.pageX - 7.5 + 530 + 17 + "px");
-        poolOutputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
+
+        let pooledOffsetX =
+            this.offsetLeft +
+            poolInputCanvasPadding +
+            (e.pageX - (this.offsetLeft + poolInputCanvasPadding)) / 2 +
+            580;
+        let pooledOffsetY =
+            this.offsetTop +
+            poolInputCanvasPadding +
+            (e.pageY - (this.offsetTop + poolInputCanvasPadding)) / 2 +
+            55;
+        poolOutputTooltip.style("left", pooledOffsetX + "px");
+        poolOutputTooltip.style("top", pooledOffsetY + "px");
     })
     .on("mousemove.e2", function (event) {
         let clickedX = event.offsetX;
@@ -511,8 +534,12 @@ d3.select("#pool-input")
             .style("font-size", "small")
             .style("text-align", "center");
 
-        ///
-        all_pixels = pooling_pixels_row1.concat(pooling_pixels_row2);
+        let all_pixels = [
+            pooling_pixels_row1[0],
+            pooling_pixels_row1[1],
+            pooling_pixels_row2[0],
+            pooling_pixels_row2[1],
+        ];
         if (poolingMode == 0) {
             //max pooling
             let max_pixel = 0;
