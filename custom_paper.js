@@ -740,7 +740,7 @@ d3.select("#pool-input")
 // ------------------------- descriptions ----------------------
 
 d3.text("./description/common/conv.txt").then(function (text) {
-    d3.select(".subsection.conv").select("#pre-conv").text(text);
+    d3.select(".subsection.conv").select(".description").text(text);
 });
 
 d3.text("./description/common/pooling.txt").then(function (text) {
