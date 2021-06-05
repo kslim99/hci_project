@@ -4,11 +4,26 @@
     margin-right: 25%;
 }
 
-.model-name {
+.page-layout .model-name {
     font-size: 48px;
     text-align: center;
     font-weight: bold;
     color: lightseagreen;
+    margin-bottom: 5px;
+}
+
+.page-layout .paper-ref {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0px 0px;
+}
+
+.page-layout .paper-authors {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0px 0px 25px 0px;
 }
 
 .section-title {
