@@ -76,6 +76,32 @@
     left: 70%;
 }
 
+#googlenet-plus-conv {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: auto;
+    top: 1115px;
+    left: 62%;
+}
+
+#googlenet-plus-pool {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: auto;
+    top: 1145px;
+    left: 62%;
+}
+
+#googlenet-plus-fc {
+    display: inline-block;
+    position: absolute;
+    width: 32px;
+    height: auto;
+    top: 1175px;
+    left: 62%;
+}
 /********* interactive panel (conv) **************/
 #conv-interactive-panel {
     margin: 5px 0px;
