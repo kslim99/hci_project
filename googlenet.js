@@ -57,10 +57,6 @@ d3.select("#change2googlenet").on("click", () => {
     location.href = "./googlenet.html";
 });
 
-d3.select("#change2model4").on("click", () => {
-    location.href = "./model4.html";
-});
-
 // -------------- interactive panel (conv) --------------
 
 d3.select("#conv-input-candidate")
