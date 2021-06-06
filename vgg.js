@@ -53,12 +53,8 @@ d3.select("#change2alexnet").on("click", () => {
     location.href = "./alexnet.html";
 });
 
-d3.select("#change2model3").on("click", () => {
-    location.href = "./model3.html";
-});
-
-d3.select("#change2model4").on("click", () => {
-    location.href = "./model4.html";
+d3.select("#change2googlenet").on("click", () => {
+    location.href = "./googlenet.html";
 });
 
 // -------------- interactive panel (conv) --------------
