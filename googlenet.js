@@ -658,6 +658,20 @@ d3.text("./description/GoogLeNet/inception_9.txt").then(function (text) {
     d3.select("#inception-9").text(text);
 });
 
+d3.text("./description/GoogLeNet/inception_spec.txt").then(function (text) {
+    d3.select("#inception-spec").text(text);
+});
+
+d3.text("./description/GoogLeNet/inception_naive.txt").then(function (text) {
+    d3.select("#inception-naive").text(text);
+});
+
+d3.text("./description/GoogLeNet/inception_dim_reduc.txt").then(function (
+    text
+) {
+    d3.select("#inception-dim-reduc").text(text);
+});
+
 d3.text("./description/GoogLeNet/overall_pipeline.txt").then(function (text) {
     d3.select("#overall-pipeline").text(text);
 });
