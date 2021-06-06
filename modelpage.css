@@ -39,6 +39,11 @@
     font-size: 16px;
 }
 
+.model-images {
+    width: 100%;
+    border: 1px solid gray;
+}
+
 /********* model structure **************/
 #model-struct {
     width: 100%;
