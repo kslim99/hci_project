@@ -503,6 +503,10 @@ p {
     width: 40%;
 }
 
+.code-mat img {
+    width: 90%;
+}
+
 .reference {
     font-size: medium;
 }
