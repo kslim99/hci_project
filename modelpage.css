@@ -49,6 +49,15 @@
     width: 100%;
 }
 
+#model-structure p {
+    font-size: large;
+    font-weight: bolder;
+    text-align: center;
+    color: lightseagreen;
+    margin-bottom: 0px;
+    background-color: lightgoldenrodyellow;
+}
+
 #plus-conv {
     display: inline-block;
     position: absolute;

@@ -68,16 +68,20 @@
                 </p>
             </div>
             <div id="model-structure">
+                <p>Try hovering your mouse on top of the model image!<br />
+                    (You will be navigated to the section explaining the selected layer.)</p>
                 <img id="model-struct" src="./image_archive/model/vgg_struct.png" />
-                <a href="#model-conv">
-                    <img id="plus-conv" src="./image_archive/model/plus_conv.svg" />
-                </a>
-                <a href="#model-pool">
-                    <img id="plus-pool" src="./image_archive/model/plus_pool.svg" />
-                </a>
-                <a href="#model-softmax">
-                    <img id="plus-fc" src="./image_archive/model/plus_FC.svg" />
-                </a>
+                <div id="plus-wrapper" style="display:none">
+                    <a href="#model-conv">
+                        <img id="plus-conv" src="./image_archive/model/plus_conv.svg" />
+                    </a>
+                    <a href="#model-pool">
+                        <img id="plus-pool" src="./image_archive/model/plus_pool.svg" />
+                    </a>
+                    <a href="#model-softmax">
+                        <img id="plus-fc" src="./image_archive/model/plus_FC.svg" />
+                    </a>
+                </div>
             </div>
             <p id="overall-pipeline" class="description" />
             <div class="subsection conv">

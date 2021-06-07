@@ -640,6 +640,31 @@ d3.select("#pool-interactive-panel")
             : inputPaperHelp.classed("fold", true).attr("fold", true);
     });
 
+// ----------- Model Structure Image --------------
+
+d3.select("#model-struct").on("mouseover", function () {
+    let modelstructImg = document.getElementById("model-struct");
+    let modelstructImgWidth = modelstructImg.width;
+    let modelstructImgHeight = modelstructImg.height;
+    let modelstructImgTop = modelstructImg.offsetTop;
+    let modelstructImgLeft = modelstructImg.offsetLeft;
+
+    let plusConv = document.getElementById("plus-conv");
+    let plusPool = document.getElementById("plus-pool");
+    let plusFC = document.getElementById("plus-fc");
+    debugger;
+
+    plusConv.style.top = modelstructImgTop + modelstructImgHeight * 0.6 + "px";
+    plusPool.style.top = modelstructImgTop + modelstructImgHeight * 0.6 + "px";
+    plusFC.style.top = modelstructImgTop + modelstructImgHeight * 0.55 + "px";
+
+    document.getElementById("plus-wrapper").style.display = null;
+});
+
+d3.select("#model-struct").on("mouseout", function () {
+    document.getElementById("plus-wrapper").style.display = "none";
+});
+
 /*
 d3.select("#model-overview-paper").on("click", function () {
     let targetPaper = d3.select("#paper-abstract");
