@@ -664,9 +664,11 @@ d3.select("#inception-9-img").on("mouseover", function () {
     document.getElementById("plus-wrapper").style.display = null;
 });
 
+/*
 d3.select("#inception-9-img").on("mouseout", function () {
     document.getElementById("plus-wrapper").style.display = "none";
 });
+*/
 //------------------- Read paper ------------------------
 /*
 d3.select("#model-overview-paper").on("click", function () {

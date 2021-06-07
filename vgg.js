@@ -660,10 +660,11 @@ d3.select("#model-struct").on("mouseover", function () {
 
     document.getElementById("plus-wrapper").style.display = null;
 });
-
+/*
 d3.select("#model-struct").on("mouseout", function () {
     document.getElementById("plus-wrapper").style.display = "none";
 });
+*/
 
 /*
 d3.select("#model-overview-paper").on("click", function () {
