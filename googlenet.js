@@ -611,6 +611,35 @@ d3.select("#pool-input")
             .style("text-align", "center");
     });
 
+// ------------------ How to Use -----------------
+d3.select("#conv-interactive-panel")
+    .select(".how-to-icon")
+    .on("click", function () {
+        document.getElementById("conv-how-to").style.top =
+            this.offsetTop - 740 / 1.702 + "px";
+        document.getElementById("conv-how-to").style.left =
+            this.offsetLeft - 740 + "px";
+
+        let inputPaperHelp = d3.select("#conv-how-to");
+        inputPaperHelp.attr("fold") == "true"
+            ? inputPaperHelp.classed("fold", false).attr("fold", false)
+            : inputPaperHelp.classed("fold", true).attr("fold", true);
+    });
+
+d3.select("#pool-interactive-panel")
+    .select(".how-to-icon")
+    .on("click", function () {
+        document.getElementById("pool-how-to").style.top =
+            this.offsetTop - 740 / 1.702 + "px";
+        document.getElementById("pool-how-to").style.left =
+            this.offsetLeft - 740 + "px";
+
+        let inputPaperHelp = d3.select("#pool-how-to");
+        inputPaperHelp.attr("fold") == "true"
+            ? inputPaperHelp.classed("fold", false).attr("fold", false)
+            : inputPaperHelp.classed("fold", true).attr("fold", true);
+    });
+
 //------------------- Read paper ------------------------
 /*
 d3.select("#model-overview-paper").on("click", function () {
