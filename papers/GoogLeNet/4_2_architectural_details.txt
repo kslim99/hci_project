@@ -1,0 +1,31 @@
+This leads to the second idea of the Inception architecture: judiciously reducing dimension wherever the computational requirements would increase too much otherwise.
+This is based on the success of embeddings: even low dimensional embeddings might contain a lot of information
+about a relatively large image patch. However, embeddings represent information in a dense, compressed form
+and compressed information is harder to process. The representation should be kept sparse at most places (as required
+by the conditions of [2]) and compress the signals only
+whenever they have to be aggregated en masse. That is,
+1×1 convolutions are used to compute reductions before
+the expensive 3×3 and 5×5 convolutions. Besides being
+used as reductions, they also include the use of rectified linear activation making them dual-purpose. The final result is
+depicted in Figure 2(b).
+In general, an Inception network is a network consisting of modules of the above type stacked upon each other,
+with occasional max-pooling layers with stride 2 to halve
+the resolution of the grid. For technical reasons (memory efficiency during training), it seemed beneficial to start using Inception modules only at higher layers while keeping
+the lower layers in traditional convolutional fashion. This is
+not strictly necessary, simply reflecting some infrastructural
+inefficiencies in our current implementation.
+A useful aspect of this architecture is that it allows for
+increasing the number of units at each stage significantly
+without an uncontrolled blow-up in computational complexity at later stages. This is achieved by the ubiquitous
+use of dimensionality reduction prior to expensive convolutions with larger patch sizes. Furthermore, the design follows the practical intuition that visual information should
+be processed at various scales and then aggregated so that
+the next stage can abstract features from the different scales
+simultaneously.
+The improved use of computational resources allows for
+increasing both the width of each stage as well as the number of stages without getting into computational difficulties.
+One can utilize the Inception architecture to create slightly
+inferior, but computationally cheaper versions of it. We
+have found that all the available knobs and levers allow for
+a controlled balancing of computational resources resulting
+in networks that are 3 − 10× faster than similarly performing networks with non-Inception architecture, however this
+requires careful manual design at this point.

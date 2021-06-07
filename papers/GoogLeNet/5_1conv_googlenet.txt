@@ -1,0 +1,26 @@
+By the“GoogLeNet” name we refer to the particular incarnation of the Inception architecture used in our submission for the ILSVRC 2014 competition.
+ We also used one
+deeper and wider Inception network with slightly superior
+quality, but adding it to the ensemble seemed to improve the
+results only marginally. We omit the details of that network,
+as empirical evidence suggests that the influence of the exact architectural parameters is relatively minor. 
+Table 1 illustrates the most common instance of Inception used in the
+competition. This network (trained with different imagepatch sampling methods) was used for 6 out of the 7 models
+in our ensemble.
+
+All the convolutions, including those inside the Inception modules, use rectified linear activation. The size of the
+receptive field in our network is 224×224 in the RGB color
+space with zero mean. “#3×3 reduce” and “#5×5 reduce”
+stands for the number of 1×1 filters in the reduction layer
+used before the 3×3 and 5×5 convolutions. One can see
+the number of 1×1 filters in the projection layer after the
+built-in max-pooling in the pool proj column. All these reduction/projection layers use rectified linear activation as
+well.
+The network was designed with computational efficiency
+and practicality in mind, so that inference can be run on individual devices including even those with limited computational resources, especially with low-memory footprint.
+The network is 22 layers deep when counting only layers
+with parameters (or 27 layers if we also count pooling). The
+overall number of layers (independent building blocks) used
+for the construction of the network is about 100. The exact
+number depends on how layers are counted by the machine
+learning infrastructure. 

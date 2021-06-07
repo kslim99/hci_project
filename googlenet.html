@@ -70,6 +70,7 @@
                 </div>
             </div>
         </div>
+        <!--
         <div id="section-input">
             <div class="section-title-container">
                 <a class="section-title" id="input">Input</a>
@@ -82,6 +83,7 @@
             </div>
             <p class="description" />
         </div>
+        -->
         <div id="section-model">
             <div class="section-title-container">
                 <a class="section-title" id="model">Model</a>
@@ -98,12 +100,23 @@
                 src="./image_archive/model/googlenet/inception_dim_reduc.png" />
             <div id="paper-arc-model" class="paper-group fold" fold=true>
                 <p class="paper-title">Model architecture</p>
-                <p class="paper-description">
+                <p class="paper-title">Naive Model</p>
+                <p id="naive-model-text" class="paper-description">
+                <p class="paper-title">Dimension Reduced Model</p>
+                <p id="dim-reduc-model-text" class="paper-description"></p>
                 </p>
             </div>
             <p id="overall-pipeline" class="description" />
             <div class="subsection conv">
-                <a class="section-subtitle" id="model-conv">Conv</a>
+                <div class="section-subtitle-container">
+                    <a class="section-subtitle" id="model-conv">Conv</a>
+                    <img id="conv-paper" width="32" height="32" src="./image_archive/document.svg">
+                </div>
+                <div id="paper-arc-conv" class="paper-group fold" fold=true>
+                    <p class="paper-title">Convolution & Operations</p>
+                    <p class="paper-description">
+                    </p>
+                </div>
                 <p class="description">
                 </p>
                 <div id="conv-interactive-panel">
@@ -182,7 +195,15 @@
                 </div>
             </div>
             <div class="subsection pooling">
-                <a class="section-subtitle" id="model-pool">Pooling</a>
+                <div class="section-subtitle-container">
+                    <a class="section-subtitle" id="model-pool">Pooling</a>
+                    <img id="pool-paper" width="32" height="32" src="./image_archive/document.svg">
+                </div>
+                <div id="paper-arc-pool" class="paper-group fold" fold=true>
+                    <p class="paper-title">Pooling</p>
+                    <p class="paper-description">
+                    </p>
+                </div>
                 <p class="description">
                 </p>
                 <div id="pool-interactive-panel">
@@ -261,17 +282,25 @@
                 </div>
                 <p class="description" />
             </div>
-            <div class="subsection classifier">
-                <a class="section-subtitle" id="model-classifier">Classifier</a>
-                <p class="description">
-                </p>
-                <img id="classifier-img" class="model-images"
-                    src="./image_archive/model/googlenet/auxiliary_classifier.png" />
-            </div>
             <div class="subsection fc">
                 <a class="section-subtitle" id="model-fc">Global Average Pooling</a>
                 <p class="description">
                 </p>
+            </div>
+            <div class="subsection classifier">
+                <div class="section-subtitle-container">
+                    <a class="section-subtitle" id="model-classifier">Classifier</a>
+                    <img id="classifier-paper" width="32" height="32" src="./image_archive/document.svg">
+                </div>
+                <div id="paper-arc-classifier" class="paper-group fold" fold=true>
+                    <p class="paper-title">Auxiliary Classifier</p>
+                    <p class="paper-description">
+                    </p>
+                </div>
+                <p class="description">
+                </p>
+                <img id="classifier-img" class="model-images"
+                    src="./image_archive/model/googlenet/auxiliary_classifier.png" />
             </div>
             <div class="subsection softmax">
                 <a class="section-subtitle" id="model-softmax">Softmax</a>
@@ -281,7 +310,6 @@
         <div id="section-output">
             <div class="section-title-container">
                 <a class="section-title" id="output">Output</a>
-                <img id="output-paper" width="32" height="32" src="./image_archive/document.svg">
             </div>
             <p class="description">
             </p>
@@ -314,15 +342,14 @@
         <div id="section-coverage">
             <p class="description">
                 This article covers the paper
-                "VERY DEEP CONVOLUTIONAL NETWORKS FOR LARGE-SCALE IMAGE RECOGNITION"
-                from page 1- page3 (Abstraction ~ 2.CONVNET CONFIGURATIONS).</p>
+                "Going Deeper with Convolutions"
+                from page 1- page5 (Abstraction ~ 5.GoogLeNet).</p>
         </div>
     </div>
     <div>
         <nav class="floating-menu">
             <h3>Floating Menu</h3>
             <a href="#model-overview">Model Overview</a><br />
-            <a href="#input">Input</a><br />
             <a href="#model">Model</a><br />
             <a href="#model-conv">- Conv</a><br />
             <a href="#model-pool">- Pooling</a><br />

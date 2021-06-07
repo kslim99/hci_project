@@ -1,0 +1,9 @@
+The use of average pooling before
+the classifier is based on [12], although our implementation
+has an additional linear layer. The linear layer enables us to
+easily adapt our networks to other label sets, however it is
+used mostly for convenience and we do not expect it to have
+a major effect. We found that a move from fully connected
+layers to average pooling improved the top-1 accuracy by
+about 0.6%, however the use of dropout remained essential
+even after removing the fully connected layers.

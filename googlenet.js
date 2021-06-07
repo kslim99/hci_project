@@ -676,10 +676,15 @@ d3.select("#model-overview-paper").on("click", function () {
         : targetPaper.classed("fold", true).attr("fold", true);
 });
 */
+
+// button id : paper-group id
 let sectionPaperPair = {
     "model-overview-paper": "paper-abstract",
     "input-paper": "paper-arc-input",
     "model-paper": "paper-arc-model",
+    "conv-paper": "paper-arc-conv",
+    "pool-paper": "paper-arc-pool",
+    "classifier-paper": "paper-arc-classifier",
 };
 
 d3.selectAll(".section-title-container")
@@ -691,8 +696,41 @@ d3.selectAll(".section-title-container")
             : targetPaper.classed("fold", true).attr("fold", true);
     });
 
+d3.selectAll(".section-subtitle-container")
+    .selectAll("img")
+    .on("click", function () {
+        let targetPaper = d3.select("#" + sectionPaperPair[this.id]);
+        targetPaper.attr("fold") == "true"
+            ? targetPaper.classed("fold", false).attr("fold", false)
+            : targetPaper.classed("fold", true).attr("fold", true);
+    });
+
 d3.text("./papers/GoogLeNet/0_abstract.txt").then(function (text) {
     d3.select("#paper-abstract").select(".paper-description").text(text);
+});
+
+d3.text("./papers/GoogLeNet/4_1_architectural_details.txt").then(function (
+    text
+) {
+    d3.select("#paper-arc-model").select("#naive-model-text").text(text);
+});
+
+d3.text("./papers/GoogLeNet/4_2_architectural_details.txt").then(function (
+    text
+) {
+    d3.select("#paper-arc-model").select("#dim-reduc-model-text").text(text);
+});
+
+d3.text("./papers/GoogLeNet/5_1conv_googlenet.txt").then(function (text) {
+    d3.select("#paper-arc-conv").select(".paper-description").text(text);
+});
+
+d3.text("./papers/GoogLeNet/5_2pool_googlenet.txt").then(function (text) {
+    d3.select("#paper-arc-pool").select(".paper-description").text(text);
+});
+
+d3.text("./papers/GoogLeNet/5_3classifier_googlenet.txt").then(function (text) {
+    d3.select("#paper-arc-classifier").select(".paper-description").text(text);
 });
 
 // descriptions
@@ -736,6 +774,10 @@ d3.text("./description/common/conv.txt").then(function (text) {
 
 d3.text("./description/common/pooling.txt").then(function (text) {
     d3.select(".subsection.pooling").select(".description").text(text);
+});
+
+d3.text("./description/common/softmax.txt").then(function (text) {
+    d3.select(".subsection.softmax").select(".description").text(text);
 });
 
 d3.text("./description/GoogLeNet/classifier.txt").then(function (text) {

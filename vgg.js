@@ -679,6 +679,7 @@ let sectionPaperPair = {
     "model-overview-paper": "paper-abstract",
     "input-paper": "paper-arc-input",
     "model-paper": "paper-arc-model",
+    "output-paper": "paper-arc-output",
 };
 
 d3.selectAll(".section-title-container")
@@ -700,6 +701,10 @@ d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
 
 d3.text("./papers/VGG/2_1_architecture.txt").then(function (text) {
     d3.select("#paper-arc-model").select(".paper-description").text(text);
+});
+
+d3.text("./papers/VGG/output.txt").then(function (text) {
+    d3.select("#paper-arc-output").select(".paper-description").text(text);
 });
 
 // descriptions

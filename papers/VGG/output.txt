@@ -1,0 +1,8 @@
+(part of 2.1 Architecture)  A stack of convolutional layers (which has a different depth in different architectures) is followed by
+three Fully-Connected (FC) layers: the first two have 4096 channels each, the third performs 1000-
+way ILSVRC classification and thus contains 1000 channels (one for each class). The final layer is
+the soft-max layer. The configuration of the fully connected layers is the same in all networks.
+All hidden layers are equipped with the rectification (ReLU (Krizhevsky et al., 2012)) non-linearity.
+We note that none of our networks (except for one) contain Local Response Normalisation
+(LRN) normalisation (Krizhevsky et al., 2012): as will be shown in Sect. 4, such normalisation
+does not improve the performance on the ILSVRC dataset, but leads to increased memory consumption and computation time.
