@@ -788,3 +788,32 @@ d3.select("#change2model3").on("click", () => {
 d3.select("#change2model4").on("click", () => {
     location.href = "./model4.html";
 });
+
+// ------------------ How to Use -----------------
+d3.select("#conv-interactive-panel")
+    .select(".how-to-icon")
+    .on("click", function () {
+        document.getElementById("conv-how-to").style.top =
+            this.offsetTop - 640 / 1.702 + "px";
+        document.getElementById("conv-how-to").style.left =
+            this.offsetLeft - 640 + "px";
+
+        let inputPaperHelp = d3.select("#conv-how-to");
+        inputPaperHelp.attr("fold") == "true"
+            ? inputPaperHelp.classed("fold", false).attr("fold", false)
+            : inputPaperHelp.classed("fold", true).attr("fold", true);
+    });
+
+d3.select("#pool-interactive-panel")
+    .select(".how-to-icon")
+    .on("click", function () {
+        document.getElementById("pool-how-to").style.top =
+            this.offsetTop - 640 / 1.702 + "px";
+        document.getElementById("pool-how-to").style.left =
+            this.offsetLeft - 640 + "px";
+
+        let inputPaperHelp = d3.select("#pool-how-to");
+        inputPaperHelp.attr("fold") == "true"
+            ? inputPaperHelp.classed("fold", false).attr("fold", false)
+            : inputPaperHelp.classed("fold", true).attr("fold", true);
+    });

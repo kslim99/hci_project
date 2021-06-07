@@ -239,7 +239,7 @@
     justify-content: flex-end;
 }
 
-#conv-interactive-panel .output-group .interactive-how-to img {
+#conv-interactive-panel .output-group .interactive-how-to .how-to-icon {
     width: 32px;
     padding-right: 10px;
 }
@@ -443,9 +443,23 @@
     justify-content: flex-end;
 }
 
-#pool-interactive-panel .output-group .interactive-how-to img {
+#pool-interactive-panel .output-group .interactive-how-to .how-to-icon {
     width: 32px;
     padding-right: 10px;
+}
+
+#conv-how-to,
+#pool-how-to {
+    width: 600px;
+    height: auto;
+    position: absolute;
+    top: 300px;
+    right: 150px;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 3px solid lightseagreen;
+    border-radius: 10px;
 }
 
 /**/
