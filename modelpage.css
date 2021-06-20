@@ -498,11 +498,12 @@ p {
     top: 15%;
     width: 24%;
     height: 75%;
-    overflow: auto;
     z-index: 10;
 }
 
 .paper-group-contents {
+    height: 100%;
+    overflow: auto;
     padding: 5px 10px 10px 10px;
     background-color: beige;
 }

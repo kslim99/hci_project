@@ -683,6 +683,13 @@ let sectionPaperPair = {
     "output-paper": "paper-arc-output",
 };
 
+let paperSectionPair = {
+    "paper-abstract": "section-model-overview",
+    "paper-arc-input": "section-input",
+    "paper-arc-model": "section-model",
+    "paper-arc-output": "section-output",
+};
+
 d3.selectAll(".section-title-container")
     .select(".paper-closed")
     .on("click", function () {
@@ -698,12 +705,21 @@ d3.selectAll(".section-title-container")
         d3.select(this).style("display", "none");
     });
 
-d3.selectAll(".section-title-container")
-    .selectAll(".paper-opened")
+d3.selectAll(".paper-group")
+    .select(".fold-paper")
     .on("click", function () {
-        let targetPaper = d3.select(
-            "#" + sectionPaperPair[d3.select(this).attr("papersection")]
+        let targetPaper = d3.select("#" + d3.select(this).attr("papergroup"));
+        targetPaper.attr("fold") == "true"
+            ? targetPaper.classed("fold", false).attr("fold", false)
+            : targetPaper.classed("fold", true).attr("fold", true);
+
+        d3.select(this).style("display", "none");
+
+        let sectionArea = d3.select(
+            "#" + paperSectionPair[d3.select(this).attr("papergroup")]
         );
+        sectionArea.select(".paper-opened").style("display", "none");
+        sectionArea.select(".paper-closed").style("display", "inline");
     });
 
 d3.text("./papers/VGG/abstract.txt").then(function (text) {
