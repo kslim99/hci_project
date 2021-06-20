@@ -684,12 +684,26 @@ let sectionPaperPair = {
 };
 
 d3.selectAll(".section-title-container")
-    .selectAll("img")
+    .select(".paper-closed")
     .on("click", function () {
         let targetPaper = d3.select("#" + sectionPaperPair[this.id]);
         targetPaper.attr("fold") == "true"
             ? targetPaper.classed("fold", false).attr("fold", false)
             : targetPaper.classed("fold", true).attr("fold", true);
+
+        let sectionname = "section-" + this.id.substr(0, this.id.length - 6);
+        d3.select("#" + sectionname)
+            .select(".paper-opened")
+            .style("display", "inline");
+        d3.select(this).style("display", "none");
+    });
+
+d3.selectAll(".section-title-container")
+    .selectAll(".paper-opened")
+    .on("click", function () {
+        let targetPaper = d3.select(
+            "#" + sectionPaperPair[d3.select(this).attr("papersection")]
+        );
     });
 
 d3.text("./papers/VGG/abstract.txt").then(function (text) {

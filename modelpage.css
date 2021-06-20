@@ -494,13 +494,22 @@ p {
 /*********** paper *******************/
 .paper-group {
     position: fixed;
-    padding: 0px 10px;
     right: 5px;
     top: 15%;
     width: 24%;
     height: 75%;
-    background-color: beige;
     overflow: auto;
+    z-index: 10;
+}
+
+.paper-group-contents {
+    padding: 5px 10px 10px 10px;
+    background-color: beige;
+}
+
+.paper-group .fold-paper {
+    padding-top: 10px;
+    padding-left: 200px;
 }
 
 .paper-title {
@@ -538,4 +547,9 @@ p {
 #section-coverage {
     background-color: lightgrey;
     padding: 5px 10px;
+}
+
+/******************* Additional Features *********************/
+.paper-opened {
+    display: none;
 }
