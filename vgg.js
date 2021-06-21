@@ -1,3 +1,7 @@
+//opened papers
+let openedPapers = new Set();
+let topZIndex = 0;
+
 // interactive panel selections
 let inputID = -1;
 let poolingInputID = -1;
@@ -705,19 +709,28 @@ d3.selectAll(".section-title-container")
             .select(".paper-opened")
             .style("display", "inline");
         d3.select(this).style("display", "none");
+
+        openedPapers.add(sectionPaperPair[this.id]);
+        topZIndex++;
+        targetPaper.style("z-index", topZIndex);
     });
 
 d3.selectAll(".paper-group")
     .select(".fold-paper")
     .on("click", function () {
-        let targetPaper = d3.select("#" + d3.select(this).attr("papergroup"));
-        targetPaper.classed("fold", true).attr("fold", true);
+        let paperGroup = d3.select(this).attr("papergroup");
+        let targetPaper = d3.select("#" + paperGroup);
+        targetPaper.classed("fold", true).attr("fold", true).style("z-indx", 0);
 
-        let sectionArea = d3.select(
-            "#" + paperSectionPair[d3.select(this).attr("papergroup")]
-        );
+        let sectionArea = d3.select("#" + paperSectionPair[paperGroup]);
         sectionArea.select(".paper-opened").style("display", "none");
         sectionArea.select(".paper-closed").style("display", "inline");
+
+        if (openedPapers.delete(paperGroup) == true) {
+            if (openedPapers.size == 0) {
+                topZIndex = 0;
+            }
+        }
     });
 
 d3.text("./papers/VGG/abstract.txt").then(function (text) {
