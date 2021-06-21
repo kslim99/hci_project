@@ -253,7 +253,7 @@ d3.select("#conv-input")
     .on("mousemove.e1", function (e) {
         convInputTooltip.style("left", e.pageX - 7.5 + "px");
         convInputTooltip.style("top", e.pageY - 7.5 + "px");
-        convOutputTooltip.style("left", e.pageX - 7.5 + 525 + "px");
+        convOutputTooltip.style("left", e.pageX - 7.5 + 515 + "px");
         convOutputTooltip.style("top", e.pageY - 7.5 + 15 + "px");
     })
     .on("mousemove.e2", function (event) {
