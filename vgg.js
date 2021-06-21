@@ -1,5 +1,10 @@
 //opened papers
-let openedPapers = new Set();
+let openedPapers = {
+    "list-model-overview": 0,
+    "list-input": 0,
+    "list-model": 0,
+    "list-output": 0,
+};
 let topZIndex = 0;
 
 // interactive panel selections
@@ -706,8 +711,13 @@ d3.selectAll(".section-title-container")
             .style("display", "inline");
         d3.select(this).style("display", "none");
 
-        openedPapers.add(sectionPaperPair[this.id]);
+        d3.select("#paper-list")
+            .selectAll("p")
+            .classed("top-opened-paper", false);
+        let paperListName = "list-" + this.id.substr(0, this.id.length - 6);
         topZIndex++;
+        openedPapers[paperListName] = topZIndex;
+        d3.select("#" + paperListName).classed("top-opened-paper", true);
         targetPaper.style("z-index", topZIndex);
 
         d3.select("#paper-list-container").style("display", "block");
@@ -724,11 +734,49 @@ d3.selectAll(".paper-group")
         sectionArea.select(".paper-opened").style("display", "none");
         sectionArea.select(".paper-closed").style("display", "inline");
 
-        if (openedPapers.delete(paperGroup) == true) {
-            if (openedPapers.size == 0) {
-                topZIndex = 0;
-                d3.select("#paper-list-container").style("display", "none");
+        let paperListName = "list-" + paperSectionPair[paperGroup].slice(8);
+        openedPapers[paperListName] = 0;
+        d3.select("#" + paperListName).classed("top-opened-paper", false);
+
+        let keys = Object.keys(openedPapers);
+        let max = openedPapers[keys[0]];
+        let i;
+        let maxKey = keys[0];
+        for (i = 1; i < keys.length; i++) {
+            let value = openedPapers[keys[i]];
+            if (value > max) {
+                max = value;
+                maxKey = keys[i];
             }
+        }
+
+        if (max == 0) {
+            topZIndex = 0;
+            d3.select("#paper-list-container").style("display", "none");
+        } else {
+            d3.select("#" + maxKey).classed("top-opened-paper", true);
+        }
+    });
+
+d3.select("#paper-list-container")
+    .selectAll("p")
+    .on("click", function () {
+        if (openedPapers[this.id] == 0) {
+            alert("This section is not opened!");
+        } else {
+            d3.select("#paper-list")
+                .selectAll("p")
+                .classed("top-opened-paper", false);
+
+            //id: "list-[name]"
+            //change it into the papergroup's id: sectionPaperPair["[name]-paper"]
+            let paperGroup = this.id.slice(5) + "-paper";
+            let targetPaper = d3.select("#" + sectionPaperPair[paperGroup]);
+            topZIndex++;
+            targetPaper.style("z-index", topZIndex);
+
+            openedPapers[this.id] = topZIndex;
+            d3.select("#" + this.id).classed("top-opened-paper", true);
         }
     });
 

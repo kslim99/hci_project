@@ -572,8 +572,13 @@ p {
     text-align: center;
     padding: 5px 5px;
     margin: 0px 5px;
-    border: 2px solid gray;
+    border: 2px solid lightgray;
+    color: gray;
     border-radius: 10px;
     font-size: medium;
     font-weight: bolder;
+}
+
+.top-opened-paper {
+    background-color: beige;
 }
