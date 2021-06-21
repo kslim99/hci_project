@@ -37,6 +37,7 @@
 
 .description {
     font-size: 16px;
+    font-family: "Noto Sans KR", sans-serif;
 }
 
 .model-images {
@@ -581,4 +582,58 @@ p {
 
 .top-opened-paper {
     background-color: beige;
+}
+
+#conv-1-2-arrow {
+    transform: rotate(90deg);
+    position: absolute;
+    width: 48px;
+    height: auto;
+    top: 1000px;
+    left: 31%;
+}
+
+#conv-2-3-arrow {
+    transform: rotate(150deg);
+    position: absolute;
+    width: 64px;
+    height: auto;
+    top: 1000px;
+    left: 51%;
+}
+
+#conv-3-4-arrow {
+    transform: scaleX(-1);
+    position: absolute;
+    width: 96px;
+    height: auto;
+    top: 1000px;
+    left: 51%;
+}
+
+#pool-1-2-arrow {
+    transform: rotate(90deg);
+    position: absolute;
+    width: 48px;
+    height: auto;
+    top: 1000px;
+    left: 31%;
+}
+
+#pool-2-3-arrow {
+    transform: rotate(150deg);
+    position: absolute;
+    width: 64px;
+    height: auto;
+    top: 1000px;
+    left: 51%;
+}
+
+#pool-3-4-arrow {
+    transform: scaleX(-1);
+    position: absolute;
+    width: 96px;
+    height: auto;
+    top: 1000px;
+    left: 51%;
 }

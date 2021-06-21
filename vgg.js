@@ -651,6 +651,54 @@ d3.select("#pool-interactive-panel")
             : inputPaperHelp.classed("fold", true).attr("fold", true);
     });
 
+d3.select("#conv-interactive-panel").on("mouseover", function () {
+    let convPanel = document.getElementById("conv-interactive-panel");
+    let convPanelWidth = convPanel.offsetWidth;
+    let convPanelHeight = convPanel.offsetWidth;
+    let convPanelTop = convPanel.offsetTop;
+    let convPanelLeft = convPanel.offsetLeft;
+
+    d3.select("#conv-interactive-panel")
+        .selectAll(".how-to-arrow")
+        .classed("fold", false);
+
+    d3.select("#conv-1-2-arrow")
+        .style("top", convPanelTop + convPanelHeight * 0.01 + "px")
+        .style("left", convPanelLeft + convPanelWidth * 0.32 + "px");
+
+    d3.select("#conv-2-3-arrow")
+        .style("top", convPanelTop + convPanelHeight * 0.2 + "px")
+        .style("left", convPanelLeft + convPanelWidth * 0.61 + "px");
+
+    d3.select("#conv-3-4-arrow")
+        .style("top", convPanelTop + convPanelHeight * 0.42 + "px")
+        .style("left", convPanelLeft + convPanelWidth * 0.54 + "px");
+});
+
+d3.select("#pool-interactive-panel").on("mouseover", function () {
+    let poolPanel = document.getElementById("pool-interactive-panel");
+    let poolPanelWidth = poolPanel.offsetWidth;
+    let poolPanelHeight = poolPanel.offsetWidth;
+    let poolPanelTop = poolPanel.offsetTop;
+    let poolPanelLeft = poolPanel.offsetLeft;
+
+    d3.select("#pool-interactive-panel")
+        .selectAll(".how-to-arrow")
+        .classed("fold", false);
+
+    d3.select("#pool-1-2-arrow")
+        .style("top", poolPanelTop + poolPanelHeight * 0.01 + "px")
+        .style("left", poolPanelLeft + poolPanelWidth * 0.32 + "px");
+
+    d3.select("#pool-2-3-arrow")
+        .style("top", poolPanelTop + poolPanelHeight * 0.2 + "px")
+        .style("left", poolPanelLeft + poolPanelWidth * 0.71 + "px");
+
+    d3.select("#pool-3-4-arrow")
+        .style("top", poolPanelTop + poolPanelHeight * 0.42 + "px")
+        .style("left", poolPanelLeft + poolPanelWidth * 0.65 + "px");
+});
+
 // ----------- Model Structure Image --------------
 
 d3.select("#model-struct").on("mouseover", function () {
@@ -663,7 +711,6 @@ d3.select("#model-struct").on("mouseover", function () {
     let plusConv = document.getElementById("plus-conv");
     let plusPool = document.getElementById("plus-pool");
     let plusFC = document.getElementById("plus-fc");
-    debugger;
 
     plusConv.style.top = modelstructImgTop + modelstructImgHeight * 0.6 + "px";
     plusPool.style.top = modelstructImgTop + modelstructImgHeight * 0.6 + "px";
