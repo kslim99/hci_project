@@ -16,6 +16,8 @@ let poolingMode = -1;
 // interactive panel selection list
 let inputIDList = ["building", "windflower", "child"];
 let filterIDList = ["edge", "vertical", "horizontal"];
+
+let poolInputIDList = ["windflower", "flower", "line"];
 let poolingModeList = ["max", "avg"];
 
 // pooled pixel value
@@ -373,7 +375,7 @@ d3.select("#pool-input-candidate")
             targetCanvas.clientHeight - 20
         );
 
-        poolingInputID = inputIDList.indexOf(this.alt);
+        poolingInputID = poolInputIDList.indexOf(this.alt);
 
         d3.select("#pooling-state-message")
             .select(".input-not-selected")
@@ -411,7 +413,7 @@ d3.select("#pool-interactive-panel")
         if (poolingMode == -1 || poolingInputID == -1) {
             alert("Finish your input selection & pooling mode selection!");
         } else {
-            outputSrc = `./pool_generator/pool_output/${poolingModeList[poolingMode]}/${inputIDList[poolingInputID]}_out.jpg`;
+            outputSrc = `./pool_generator/pool_output/${poolingModeList[poolingMode]}/${poolInputIDList[poolingInputID]}_out.jpg`;
         }
 
         d3.select("#pool-output-img")
