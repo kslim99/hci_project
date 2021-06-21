@@ -11,7 +11,8 @@ def processImage(image):
 def poolingImage(filenameList,poolingOption):
     for filename in filenameList:
         # Grayscale Image
-        image = processImage('../conv_generator/img_archive/'+filename+'_gray.jpg')
+        image = processImage('./pool_input/'+filename+'.png')
+        cv2.imwrite('./pool_input/'+filename+'_gray.jpg', image)
 
         if(poolingOption=="avg"):
             image = image.astype(np.float32)
@@ -32,7 +33,7 @@ def poolingImage(filenameList,poolingOption):
 
         #define a max pooling layer
         if(poolingOption =='max'):
-            pool_option = MaxPooling2D(pool_size = 2, strides = 2)
+            pool_option = MaxPooling2D(pool_size = 10, strides = 10)
 
             model = Sequential( 
                 [pool_option]) 
@@ -46,7 +47,7 @@ def poolingImage(filenameList,poolingOption):
 
             cv2.imwrite('./pool_output/'+poolingOption+'/'+filename+'_out.jpg', output)
         elif(poolingOption =='avg'):
-            pool_option = AveragePooling2D(pool_size=(2, 2),strides=(2, 2), padding='valid')
+            pool_option = AveragePooling2D(pool_size=(10, 10),strides=(10, 10), padding='valid')
 
             #define a sequential model with just one pooling layer
             model = Sequential( 
@@ -62,7 +63,8 @@ def poolingImage(filenameList,poolingOption):
             cv2.imwrite('./pool_output/'+poolingOption+'/'+filename+'_out.jpg', output)
 
 if __name__ == '__main__':
-    filenameList = ['building', 'windflower', 'child']
+    filenameList = ['flower', 'line','windflower']
+
     poolingImage(filenameList,'max')
     poolingImage(filenameList,'avg')
     
