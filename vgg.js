@@ -699,11 +699,7 @@ d3.selectAll(".section-title-container")
     .on("click", function () {
         let targetPaper = d3.select("#" + sectionPaperPair[this.id]);
         targetPaper.classed("fold", false).attr("fold", false);
-        /*
-        targetPaper.attr("fold") == "true"
-            ? targetPaper.classed("fold", false).attr("fold", false)
-            : targetPaper.classed("fold", true).attr("fold", true);
-        */
+
         let sectionname = "section-" + this.id.substr(0, this.id.length - 6);
         d3.select("#" + sectionname)
             .select(".paper-opened")
@@ -713,6 +709,8 @@ d3.selectAll(".section-title-container")
         openedPapers.add(sectionPaperPair[this.id]);
         topZIndex++;
         targetPaper.style("z-index", topZIndex);
+
+        d3.select("#paper-list-container").style("display", "block");
     });
 
 d3.selectAll(".paper-group")
@@ -729,6 +727,7 @@ d3.selectAll(".paper-group")
         if (openedPapers.delete(paperGroup) == true) {
             if (openedPapers.size == 0) {
                 topZIndex = 0;
+                d3.select("#paper-list-container").style("display", "none");
             }
         }
     });
