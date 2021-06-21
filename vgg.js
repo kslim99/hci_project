@@ -694,10 +694,12 @@ d3.selectAll(".section-title-container")
     .select(".paper-closed")
     .on("click", function () {
         let targetPaper = d3.select("#" + sectionPaperPair[this.id]);
+        targetPaper.classed("fold", false).attr("fold", false);
+        /*
         targetPaper.attr("fold") == "true"
             ? targetPaper.classed("fold", false).attr("fold", false)
             : targetPaper.classed("fold", true).attr("fold", true);
-
+        */
         let sectionname = "section-" + this.id.substr(0, this.id.length - 6);
         d3.select("#" + sectionname)
             .select(".paper-opened")
@@ -709,11 +711,7 @@ d3.selectAll(".paper-group")
     .select(".fold-paper")
     .on("click", function () {
         let targetPaper = d3.select("#" + d3.select(this).attr("papergroup"));
-        targetPaper.attr("fold") == "true"
-            ? targetPaper.classed("fold", false).attr("fold", false)
-            : targetPaper.classed("fold", true).attr("fold", true);
-
-        d3.select(this).style("display", "none");
+        targetPaper.classed("fold", true).attr("fold", true);
 
         let sectionArea = d3.select(
             "#" + paperSectionPair[d3.select(this).attr("papergroup")]
