@@ -846,6 +846,7 @@ d3.text("./papers/VGG/output.txt").then(function (text) {
 });
 
 // descriptions
+/*
 d3.text("./description/VGG/model_overview.txt").then(function (text) {
     d3.select("#section-model-overview").select(".description").text(text);
 });
@@ -855,10 +856,6 @@ d3.text("./description/VGG/input.txt").then(function (text) {
 });
 
 d3.text("./description/VGG/vgg.txt").then(function (text) {
-    d3.select("#section-model").select(".description").text(text);
-});
-
-d3.text("./description/VGG/model_overview.txt").then(function (text) {
     d3.select("#section-model").select(".description").text(text);
 });
 
@@ -881,3 +878,4 @@ d3.text("./description/common/softmax.txt").then(function (text) {
 d3.text("./description/VGG/output.txt").then(function (text) {
     d3.select("#section-output").select(".description").text(text);
 });
+*/
